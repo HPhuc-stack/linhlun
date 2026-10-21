@@ -1,12 +1,17 @@
+
 <!doctype html>
 <html lang="vi">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Cho m nè Linh lùn 🩵🐱🪻</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@400;600;700;800&family=Quicksand:wght@500;600;700&display=swap');
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#d2e4f9">
+<title>Cho m nè 🩵🪻</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
 :root {
   --blue-main: #3b71ca;
   --blue-soft: #d2e4f9;
@@ -20,7 +25,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Nunito', 'Quicksand', sans-serif;
+  font-family: 'Nunito', sans-serif;
   background: radial-gradient(circle at 50% 30%, #eef5fc 0%, #cbe0f8 60%, #b5d3f5 100%);
   color: var(--text-dark);
   min-height: 100vh;
@@ -31,35 +36,43 @@ body {
   position: relative;
 }
 
-/* Decor họa tiết bay lơ lửng */
+button, input, textarea {
+  font-family: 'Nunito', sans-serif;
+}
+
+h1, h2, h3, h4, .handwriting-title, .handwriting-sub {
+  font-family: 'Quicksand', sans-serif;
+}
+
 .bg-deco {
   position: fixed;
-  font-size: 30px;
-  opacity: 0.85;
-  pointer-events: none !important;
+  font-size: 28px;
+  opacity: .8;
+  pointer-events: none;
   z-index: 1;
   animation: float 4s ease-in-out infinite alternate;
-  filter: drop-shadow(0 4px 10px rgba(74, 128, 214, 0.25));
+  filter: drop-shadow(0 4px 10px rgba(74,128,214,.2));
 }
-.deco-1 { top: 6%; left: 5%; animation-delay: 0s; }
+
+.deco-1 { top: 6%; left: 5%; }
 .deco-2 { top: 8%; right: 6%; animation-delay: 1s; }
 .deco-3 { bottom: 8%; left: 6%; animation-delay: 2s; }
 .deco-4 { bottom: 10%; right: 5%; animation-delay: 1.5s; }
-.deco-5 { top: 45%; left: 2%; animation-delay: 0.5s; }
+.deco-5 { top: 45%; left: 2%; animation-delay: .5s; }
 .deco-6 { top: 50%; right: 2%; animation-delay: 2.5s; }
 
 @keyframes float {
-  0% { transform: translateY(0px) rotate(0deg); }
-  100% { transform: translateY(-12px) rotate(8deg); }
+  from { transform: translateY(0) rotate(0); }
+  to { transform: translateY(-12px) rotate(8deg); }
 }
 
 .browser-container {
   width: min(880px, 94vw);
-  background: linear-gradient(135deg, rgba(235, 244, 255, 0.95) 0%, rgba(210, 230, 255, 0.92) 100%);
+  background: linear-gradient(135deg, rgba(235,244,255,.96), rgba(210,230,255,.94));
   backdrop-filter: blur(12px);
   border-radius: 28px;
-  box-shadow: 0 20px 50px rgba(59, 113, 202, 0.25);
-  border: 3px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 20px 50px rgba(59,113,202,.25);
+  border: 3px solid rgba(255,255,255,.95);
   overflow: hidden;
   position: relative;
   margin: 20px 0;
@@ -67,7 +80,7 @@ body {
 }
 
 .browser-bar {
-  background: linear-gradient(90deg, #d8e8fb 0%, #eaf3fd 100%);
+  background: linear-gradient(90deg, #d8e8fb, #eaf3fd);
   padding: 12px 20px;
   display: flex;
   align-items: center;
@@ -84,7 +97,7 @@ body {
   margin-left: 12px;
   font-size: 13px;
   color: #4b6f96;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .page {
@@ -95,18 +108,14 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  animation: fadeIn 0.4s ease-in-out;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.6) 2px, transparent 2px);
+  animation: fadeIn .4s ease-in-out;
+  background-image: radial-gradient(rgba(255,255,255,.6) 2px, transparent 2px);
   background-size: 24px 24px;
 }
 
 .page.active { display: flex; }
 
-/* PHONG CÁCH BÌA THIỆP MÂY LILY DẠNG MỘNG MƠ */
-.card-wrapper {
-  max-width: 520px;
-  width: 100%;
-}
+.card-wrapper { max-width: 520px; width: 100%; }
 
 .envelope-card {
   width: 100%;
@@ -114,71 +123,74 @@ body {
   border: 2px solid #a8d0fb;
   border-radius: 28px;
   padding: 45px 30px;
-  box-shadow: 0 16px 38px rgba(29, 53, 87, 0.35);
+  box-shadow: 0 16px 38px rgba(29,53,87,.35);
   position: relative;
-  color: #ffffff;
+  color: #fff;
   overflow: hidden;
 }
 
 .envelope-card::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.25) 0%, transparent 50%);
+  inset: 0;
+  background: radial-gradient(circle at 80% 20%, rgba(255,255,255,.25), transparent 50%);
   pointer-events: none;
 }
 
+#cardCover, #cardInside { position: relative; z-index: 1; }
+
 .handwriting-title {
-  font-family: 'Caveat', cursive;
-  font-size: 38px;
-  line-height: 1.3;
-  color: #ffffff;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  font-size: 36px;
+  line-height: 1.35;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0,0,0,.2);
   margin: 15px 0;
+  font-weight: 700;
 }
 
 .handwriting-sub {
-  font-family: 'Caveat', cursive;
-  font-size: 22px;
+  font-size: 21px;
   color: #d8eafe;
   margin-bottom: 25px;
+  line-height: 1.6;
 }
 
 .card-inside {
   display: none;
-  animation: fadeIn 0.6s ease-in-out forwards;
+  animation: fadeIn .6s ease-in-out forwards;
 }
 
 .letter-box {
-  background: linear-gradient(160deg, #ffffff 0%, #f4f8fe 100%);
+  background: linear-gradient(160deg, #fff, #f4f8fe);
   border-radius: 26px;
   border: 2px solid #bce0fd;
   padding: 35px 32px;
   max-width: 650px;
   width: 100%;
-  box-shadow: 0 16px 38px rgba(59, 113, 202, 0.16);
+  box-shadow: 0 16px 38px rgba(59,113,202,.16);
   text-align: left;
   position: relative;
   z-index: 20;
 }
 
 .card-end-box {
-  background: linear-gradient(135deg, #1d3557 0%, #3a6073 100%);
+  background: linear-gradient(135deg, #1d3557, #3a6073);
   border-radius: 28px;
   border: 2px double #a3cbf7;
   padding: 40px 32px;
   max-width: 600px;
   width: 100%;
-  box-shadow: 0 18px 40px rgba(29, 53, 87, 0.3);
+  box-shadow: 0 18px 40px rgba(29,53,87,.3);
   text-align: center;
   position: relative;
-  color: #ffffff;
+  color: #fff;
 }
 
 .letter-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 10px;
   margin-bottom: 20px;
   border-bottom: 2px dashed #cbe0f8;
   padding-bottom: 12px;
@@ -187,20 +199,20 @@ body {
 .letter-header h3 {
   margin: 0;
   color: var(--blue-main);
-  font-size: 22px;
+  font-size: 21px;
   font-weight: 800;
 }
 
 .letter-content {
-  font-size: 15px;
-  line-height: 1.85;
+  font-size: 16px;
+  line-height: 1.9;
   color: #344e6d;
   white-space: pre-line;
 }
 
 .music-card-audio {
   margin-top: 20px;
-  background: linear-gradient(135deg, #eaf3ff 0%, #d8eafe 100%);
+  background: linear-gradient(135deg, #eaf3ff, #d8eafe);
   border: 2px dashed #9bc3f5;
   border-radius: 20px;
   padding: 20px 18px;
@@ -216,27 +228,57 @@ body {
   margin-bottom: 12px;
 }
 
-.play-music-btn {
+.play-music-btn, .btn-primary {
   background: linear-gradient(135deg, #4a84e3, #336bc7);
-  color: white;
+  color: #fff;
   border: none;
-  padding: 14px 32px;
+  padding: 13px 28px;
   border-radius: 50px;
   font-size: 15px;
-  font-weight: 700;
-  cursor: pointer !important;
-  box-shadow: 0 6px 18px rgba(59, 113, 202, 0.35);
-  transition: all 0.2s ease;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(59,113,202,.3);
+  transition: transform .2s ease, box-shadow .2s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.play-music-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   position: relative;
   z-index: 40;
-  pointer-events: auto !important;
 }
 
-.play-music-btn:hover {
-  transform: scale(1.05);
+.btn-primary:hover, .play-music-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(59,113,202,.4);
+}
+
+.btn-secondary {
+  background: #eaf3ff;
+  color: var(--blue-main);
+  border: 1.5px solid #a8d0fb;
+  padding: 12px 22px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--blue-main);
+  color: #fff;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 25px;
 }
 
 .custom-audio {
@@ -244,63 +286,14 @@ body {
   max-width: 420px;
   height: 40px;
   margin-top: 12px;
-  border-radius: 30px;
-  outline: none;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, #4a84e3, #336bc7);
-  color: white;
-  border: none;
-  padding: 13px 30px;
-  border-radius: 50px;
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer !important;
-  box-shadow: 0 8px 22px rgba(59, 113, 202, 0.38);
-  transition: all 0.2s ease;
-  text-decoration: none;
-  display: inline-block;
-  pointer-events: auto !important;
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-}
-
-.btn-secondary {
-  background: #eaf3ff;
-  color: var(--blue-main);
-  border: 1.5px solid #a8d0fb;
-  padding: 12px 24px;
-  border-radius: 50px;
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer !important;
-  transition: all 0.2s ease;
-  text-decoration: none;
-  display: inline-block;
-  pointer-events: auto !important;
-}
-
-.btn-secondary:hover {
-  background: var(--blue-main);
-  color: white;
-}
-
-.nav-buttons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 25px;
 }
 
 .drop-item {
   position: fixed;
   top: -40px;
   font-size: 28px;
-  pointer-events: none !important;
-  z-index: 5;
+  pointer-events: none;
+  z-index: 50;
   animation: fall linear forwards;
 }
 
@@ -314,12 +307,26 @@ body {
 }
 
 @media (max-width: 650px) {
-  .page { padding: 30px 20px; }
+  .page { padding: 24px 14px; min-height: 540px; }
+  .envelope-card { padding: 35px 20px; }
   .letter-box, .card-end-box { padding: 25px 20px; }
   .letter-header h3 { font-size: 18px; }
+  .handwriting-title { font-size: 31px; }
+  .letter-content { font-size: 15px; }
+  .nav-buttons { gap: 8px; }
+  .btn-primary, .btn-secondary { padding: 11px 16px; font-size: 13px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
 }
 </style>
 </head>
+
 <body>
 
 <div class="bg-deco deco-1">🎀 🪻</div>
@@ -329,85 +336,107 @@ body {
 <div class="bg-deco deco-5">🪻 🐱</div>
 <div class="bg-deco deco-6">🎀 🪻</div>
 
-<div class="browser-container">
+<main class="browser-container">
   <div class="browser-bar">
     <span class="dot dot-red"></span>
     <span class="dot dot-yellow"></span>
     <span class="dot dot-green"></span>
-    <span class="browser-title">Cho m nè Linh lùn 🩵🐱🪻</span>
+    <span class="browser-title">Một chiếc thiệp nhỏ 🩵🪻</span>
   </div>
 
-  <!-- TRANG LỜI CHÀO DẠNG THIỆP MỞ -->
+  <!-- BÌA THIỆP -->
   <section class="page active" id="page-intro">
     <div class="card-wrapper">
-      <div class="envelope-card" id="mainEnvelope">
-        
-        <!-- MẶT BÌA THIỆP CHUẨN PHONG CÁCH ẢNH MẪU -->
+      <div class="envelope-card">
         <div id="cardCover">
-          <div style="font-size:42px; margin-bottom:10px;">🪻 🦋 🐧</div>
-          <div class="handwriting-title">ê Linh lùn ơiii ♡</div>
-          <div class="handwriting-title" style="font-size:32px; color:#f1faee;">Nay là ngày lễ á :))))</div>
-          
-          <div class="handwriting-sub" style="margin-top:15px;">
-            Nên là... t có cái này muốn tặng cho m (1m49) nè.
-          </div>
-          <div style="font-size:14px; color:#e0e1dd; margin-bottom:25px;">Đừng chê nha, t làm cũng có tâm lắm đó 💖 🐧</div>
+          <div style="font-size:42px;margin-bottom:10px;">🪻 🦋 🐧</div>
 
-          <button class="btn-primary" onclick="openCard()">Rồi rồi, mở coi ♡ ›</button>
-          <div style="font-size:12px; color:#d8eafe; margin-top:10px;">mở ra đi màaa ›</div>
+          <div class="handwriting-title">Ê m ơiii ♡</div>
+          <div class="handwriting-title" style="font-size:29px;color:#f1faee;">
+            Nay là ngày lễ á :))))
+          </div>
+
+          <div class="handwriting-sub" style="margin-top:15px;">
+            Nên là... t có cái này muốn tặng m nè.
+          </div>
+
+          <div style="font-size:14px;color:#e0e1dd;margin-bottom:25px;">
+            Đừng chê nha, t làm cũng có tâm lắm đó 💖 🐧
+          </div>
+
+          <button class="btn-primary" onclick="openCard()">
+            Rồi rồi, mở coi ♡ ›
+          </button>
+
+          <div style="font-size:12px;color:#d8eafe;margin-top:12px;">
+            Mở ra đi màaa ›
+          </div>
         </div>
 
-        <!-- NỘI DUNG LỜI CHÚC XUẤT HIỆN SAU KHI MỞ BÌA -->
         <div class="card-inside" id="cardInside">
-          <div style="font-size:24px; margin-bottom:10px;">
+          <div style="font-size:24px;margin-bottom:10px;">
             🎀 🪻 🐱 🦋 🐈‍⬛ 🤍
           </div>
-          <span style="background:var(--blue-soft); color:var(--blue-main); padding:6px 16px; border-radius:20px; font-size:13px; font-weight:700;">Ê ku e</span>
-          <h1 style="color:#ffffff; margin: 12px 0;">Nay 20/10 á :))))</h1>
-          <p style="font-size:16px; color:#e0e1dd;">T làm cái trang web xinh xinh này tặng m nè.<br>đánh răng ch đó ? 🐧</p>
 
-          <button class="btn-primary" onclick="switchPage('page-1')" style="margin-top:15px;">Đọc thư t viết nè 💌</button>
-          <div style="font-size:12px; color:#d8eafe; margin-top:12px;">Mở ra đọc đi màaa :></div>
+          <span style="background:var(--blue-soft);color:var(--blue-main);padding:6px 16px;border-radius:20px;font-size:13px;font-weight:800;">
+            Có cái này cho m nè
+          </span>
+
+          <h1 style="color:#fff;margin:15px 0 10px;">
+            Nay 20/10 á :))))
+          </h1>
+
+          <p style="font-size:16px;color:#e0e1dd;line-height:1.8;">
+            T làm cái trang web xinh xinh này tặng m nè.<br>
+            Đánh răng chưa đó? 🐧
+          </p>
+
+          <button class="btn-primary" onclick="switchPage('page-1')" style="margin-top:15px;">
+            Đọc thư t viết nè 💌
+          </button>
+
+          <div style="font-size:12px;color:#d8eafe;margin-top:12px;">
+            Mở ra đọc đi màaa :&gt;
+          </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- TRANG LỜI NHẮN 1/3 -->
+  <!-- LỜI NHẮN 1 -->
   <section class="page" id="page-1">
     <div class="letter-box">
       <div class="letter-header">
-        <h3>Gửi Linh lùn 🪻 (Trang 1/3)</h3>
+        <h3>Gửi m 🪻 (Trang 1/3)</h3>
         <div>🐱 🦋</div>
       </div>
-      <div class="letter-content">
-Nay 20/10, Ngày Phụ nữ Việt Nam á :)))) T cũng không biết làm gì nhiều để tặng m nên t làm cái này cho m đọc chơi chơi thui.
 
-Thì :)))) chắc cũng giống cái sinh nhật m làm cho t á, nhưng mà lần này là t chúc cho m ykyk 😏
-      </div>
-      
+      <div class="letter-content">Nay 20/10, Ngày Phụ nữ Việt Nam á :)))) T cũng không biết làm gì nhiều để tặng m nên t làm cái này cho m đọc chơi chơi thui.
+
+Thì :)))) chắc cũng giống cái sinh nhật m làm cho t á, nhưng mà lần này là t chúc cho m ykyk 😏</div>
+
       <div class="nav-buttons">
-        <button class="btn-secondary" onclick="switchPage('page-intro')">‹ Quay lại Intro</button>
+        <button class="btn-secondary" onclick="switchPage('page-intro')">‹ Quay lại</button>
         <button class="btn-primary" onclick="switchPage('page-2')">Trang tiếp ›</button>
       </div>
     </div>
   </section>
 
-  <!-- TRANG LỜI NHẮN 2/3 -->
+  <!-- LỜI NHẮN 2 -->
   <section class="page" id="page-2">
     <div class="letter-box">
       <div class="letter-header">
-        <h3>Lời chúc chân thành 🌸 (Trang 2/3)</h3>
+        <h3>Lời chúc của t 🌸 (Trang 2/3)</h3>
         <div>🐈‍⬛ 🌷</div>
       </div>
-      <div class="letter-content">
-Thật thì t ko bt chúc gì nữa 🐧 chắc chúc m có cơ hội cao thêm vài cm hay là uhhhhhhhh ( khó quá bỏ qua ).
 
-Tính ra tới h t vs m chơi với nhau hơn nửa năm r t chỉ thích m khóc với cười th 👀 nên t mong m luôn có nhiều niềm vui nè hay là kỷ niệm các thứ để lúc nào buồn nhớ lại cũng đc, lúc nào m cười nghe giọng m cũng khiến t dễ chịu hết trơn á nên là t thích nghe m cười nh hơn.
+      <div class="letter-content">Thật thì t ko bt chúc gì nữa 🐧 chắc chúc m có cơ hội cao thêm vài cm hay là uhhhhhhhh (khó quá bỏ qua).
 
-Mong bạn sẽ luôn xinh như hoa, đẹp, gặp nhiều may mắn và được yêu thương thật nhiều nha. Mong là dù có chuyện gì xảy ra thì m sẽ kể cho t nghe để ko có buồn phiền hay gì đó (m bt t nhiều chuyện mà 🐧💔)
-      </div>
+Tính ra tới h t vs m chơi với nhau hơn nửa năm r. T chỉ thích m khóc với cười th 👀 nên t mong m luôn có nhiều niềm vui nè, hay là có thêm nhiều kỷ niệm để lúc nào buồn nhớ lại cũng đc.
+
+Lúc nào m cười, nghe giọng m cũng khiến t dễ chịu hết trơn á, nên là t thích nghe m cười nh hơn.
+
+Mong m luôn xinh, gặp nhiều may mắn và được yêu thương thật nhiều nha. Mong là dù có chuyện gì xảy ra thì m sẽ kể cho t nghe, để m ko phải giữ hết buồn phiền một mình (m bt t nhiều chuyện mà 🐧💔).</div>
 
       <div class="nav-buttons">
         <button class="btn-secondary" onclick="switchPage('page-1')">‹ Trước</button>
@@ -416,34 +445,33 @@ Mong bạn sẽ luôn xinh như hoa, đẹp, gặp nhiều may mắn và đượ
     </div>
   </section>
 
-  <!-- TRANG LỜI NHẮN 3/3 -->
+  <!-- LỜI NHẮN 3 -->
   <section class="page" id="page-3">
     <div class="letter-box">
       <div class="letter-header">
-        <h3>Happy ku e ♡ (Trang 3/3)</h3>
+        <h3>Cuối thư rùi ♡ (Trang 3/3)</h3>
         <div>🐱 🪻 🦋</div>
       </div>
-      <div class="letter-content">
-Mong là m thích nó, dù nó không phải món quà gì to tát. T chỉ muốn nhân dịp này làm một cái gì đó riêng cho m th, kiểu ít nhất thì làm cái gì đó giet tg của m chẵ hạn nên t làm cái này dài dài cho m đọc đi đọc lại chơi chơi v đó :))))
 
-Hay là để có dịp t nấu canh cho m ăn, t bt là m thích lắm nhma cứ ngại nên ko sao đâu t nấu cho m mà đừng có lo 🍲💚
-      </div>
+      <div class="letter-content">Mong là m thích nó, dù nó không phải món quà gì to tát. T chỉ muốn nhân dịp này làm một cái gì đó riêng cho m th, kiểu ít nhất thì làm cái gì đó giết thời gian của m chẳng hạn, nên t làm cái này dài dài cho m đọc đi đọc lại chơi chơi v đó :))))
 
-      <!-- Khung Trình Phát Nhạc Dịu Dàng -->
+Hay là để có dịp t nấu canh cho m ăn. T bt là m thích lắm nhma cứ ngại, nên ko sao đâu, t nấu cho m mà đừng có lo 🍲💚</div>
+
       <div class="music-card-audio">
-        <div class="music-title">🎵 Soft Piano Lofi - Chill Vibe 🎧</div>
-        
+        <div class="music-title">🎵 Một chút nhạc cho chill 🎧</div>
+
         <button class="play-music-btn" onclick="toggleAudio(event)">
-          <span id="playIcon">▶</span> <span id="playText">Bật nhạc dịu nhẹ nghe nè 🎶</span>
+          <span id="playIcon">▶</span>
+          <span id="playText">Bật nhạc nghe nè 🎶</span>
         </button>
 
-        <br>
-        <audio id="bgMusic" class="custom-audio" controls preload="auto" loop>
+        <audio id="bgMusic" class="custom-audio" controls preload="none" loop>
           <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
+          Trình duyệt của m không hỗ trợ phát nhạc.
         </audio>
-        
-        <div style="font-size:13px; color:#6a8bb1; margin-top:10px; font-style:italic; font-weight:600;">
-          bản nhạc dịu dịu nghe cho chill nè :))))
+
+        <div style="font-size:13px;color:#6a8bb1;margin-top:10px;font-style:italic;font-weight:700;">
+          Bật lên nghe chơi chơi nè :))))
         </div>
       </div>
 
@@ -454,43 +482,44 @@ Hay là để có dịp t nấu canh cho m ăn, t bt là m thích lắm nhma c�
     </div>
   </section>
 
-  <!-- TRANG KẾT BÌA THIỆP THONG CÁCH ẢNH MẪU -->
+  <!-- TRANG KẾT -->
   <section class="page" id="page-end">
     <div class="card-end-box">
-      <div style="font-size:36px; margin-bottom:10px;">🪻 🦋 🐧 🤍 🎀</div>
-      <div class="handwriting-title" style="font-size:32px; margin-bottom:15px;">
-        Cảm ơn m vì đã luôn là chính mình ♡
+      <div style="font-size:36px;margin-bottom:10px;">🪻 🦋 🐧 🤍 🎀</div>
+
+      <div class="handwriting-title" style="font-size:30px;margin-bottom:15px;">
+        Vậy thui nè ♡
       </div>
-      
-      <p style="font-size:15px; color:#d8eafe; font-style:italic; margin-bottom:20px;">
-        Có m trong đời là điều thật đặc biệt...
+
+      <p style="font-size:15px;color:#d8eafe;font-style:italic;margin-bottom:20px;">
+        T làm cái này hơi lâu đó nha :))))
       </p>
 
-      <p style="font-size:15px; line-height:1.85; color:#ffffff; margin:20px 0; font-weight:600;">
+      <p style="font-size:15px;line-height:1.9;color:#fff;margin:20px 0;font-weight:700;">
         "Xin lỗi t ko bt nói lời hoa mỹ cho lắm nên ko làm m vui các thứ đc nhma t đã cố r 😓 nên mong là đừng eoooooooo eoooooooo eooooooooo :))))"
       </p>
 
-      <div style="font-size:13px; color:#a8dadc; font-style:italic; margin-top:25px; font-weight:700;">
+      <div style="font-size:14px;color:#a8dadc;font-style:italic;margin-top:25px;font-weight:800;line-height:1.9;">
         Happy Vietnamese Women's Day 20/10 ♡<br>
         m vui là t thành công r 👀
       </div>
 
-      <div class="nav-buttons" style="justify-content:center; gap:15px; margin-top:30px;">
-        <button class="btn-secondary" onclick="switchPage('page-3')">‹ Quay lại Trang 3</button>
-        <button class="btn-primary" onclick="triggerCatRain()">Thả mèo & hoa ✨</button>
+      <div class="nav-buttons" style="justify-content:center;gap:15px;margin-top:30px;flex-wrap:wrap;">
+        <button class="btn-secondary" onclick="switchPage('page-3')">
+          ‹ Quay lại trang 3
+        </button>
+        <button class="btn-primary" onclick="triggerCatRain()">
+          Thả mèo & hoa ✨
+        </button>
       </div>
     </div>
   </section>
-
-</div>
+</main>
 
 <script>
 function openCard() {
-  const cover = document.getElementById('cardCover');
-  const inside = document.getElementById('cardInside');
-
-  cover.style.display = 'none';
-  inside.style.display = 'block';
+  document.getElementById('cardCover').style.display = 'none';
+  document.getElementById('cardInside').style.display = 'block';
   triggerCatRain();
 }
 
@@ -498,30 +527,38 @@ function switchPage(pageId) {
   document.querySelectorAll('.page').forEach(page => {
     page.classList.remove('active');
   });
-  document.getElementById(pageId).classList.add('active');
+
+  const target = document.getElementById(pageId);
+  if (target) target.classList.add('active');
+
   triggerCatRain();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function toggleAudio(e) {
-  if (e) e.stopPropagation();
+function toggleAudio(event) {
+  if (event) event.stopPropagation();
+
   const music = document.getElementById('bgMusic');
   const text = document.getElementById('playText');
   const icon = document.getElementById('playIcon');
 
   if (music.paused) {
     music.play().then(() => {
-      text.textContent = 'Đang phát nhạc dịu nhẹ 🎵 (Tạm dừng)';
+      text.textContent = 'Đang phát nhạc 🎵 (Bấm để tạm dừng)';
       icon.textContent = '⏸';
-    }).catch(err => {});
+    }).catch(() => {
+      text.textContent = 'Bấm nút phát trên thanh nhạc nhé 🎶';
+    });
   } else {
     music.pause();
-    text.textContent = 'Bật nhạc dịu nhẹ nghe nè 🎶';
+    text.textContent = 'Bật nhạc nghe nè 🎶';
     icon.textContent = '▶';
   }
 }
 
 function triggerCatRain() {
   const icons = ['🐱', '🐈‍⬛', '🪻', '🌸', '🌷', '🦋', '🎀', '✨', '🤍', '☁️', '🐧'];
+
   for (let i = 0; i < 20; i++) {
     setTimeout(() => {
       const item = document.createElement('div');
@@ -529,8 +566,8 @@ function triggerCatRain() {
       item.textContent = icons[Math.floor(Math.random() * icons.length)];
       item.style.left = Math.random() * 95 + 'vw';
       item.style.animationDuration = (Math.random() * 2 + 2) + 's';
-      document.body.appendChild(item);
 
+      document.body.appendChild(item);
       setTimeout(() => item.remove(), 4000);
     }, i * 120);
   }
