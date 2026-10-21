@@ -11,7 +11,7 @@
   --blue-main: #3b71ca;
   --blue-soft: #d2e4f9;
   --blue-accent: #629bf0;
-  --text-dark: #203856;
+  --text-dark: #1e3550;
   --white: #ffffff;
 }
 
@@ -31,6 +31,7 @@ body {
   position: relative;
 }
 
+/* Các biểu tượng trang trí lơ lửng */
 .bg-deco {
   position: fixed;
   font-size: 30px;
@@ -101,15 +102,57 @@ body {
 
 .page.active { display: flex; }
 
-.intro-card {
-  background: linear-gradient(145deg, #ffffff 0%, #f0f6ff 100%);
-  border: 2px solid #b8d7f9;
-  border-radius: 28px;
-  padding: 38px 32px;
+/* THIẾT KẾ BÌA THIỆP GẬP TƯƠNG TÁC (CARD FLIP) */
+.card-wrapper {
+  perspective: 1000px;
   max-width: 520px;
   width: 100%;
-  box-shadow: 0 14px 35px rgba(59, 113, 202, 0.15);
+}
+
+.envelope-card {
+  width: 100%;
+  background: linear-gradient(145deg, #ffffff 0%, #f0f6ff 100%);
+  border: 2px double #a8d0fb;
+  border-radius: 28px;
+  padding: 40px 30px;
+  box-shadow: 0 16px 38px rgba(59, 113, 202, 0.18);
   position: relative;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+/* Mặt Bìa Thiệp Ban Đầu */
+.card-cover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-cover-stamp {
+  font-size: 45px;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 4px 8px rgba(59, 113, 202, 0.2));
+}
+
+.card-cover-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--blue-main);
+  margin: 10px 0;
+}
+
+.card-cover-subtitle {
+  font-size: 14px;
+  color: #6a8bb1;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+/* Lời Chúc Mừng 20/10 Ẩn Bên Trong */
+.card-inside {
+  display: none;
+  animation: fadeIn 0.6s ease-in-out forwards;
 }
 
 .intro-card h1 {
@@ -174,7 +217,6 @@ body {
   white-space: pre-line;
 }
 
-/* Khung Phát Nhạc MP3 Xịn Xò */
 .music-card-audio {
   margin-top: 20px;
   background: linear-gradient(135deg, #eaf3ff 0%, #d8eafe 100%);
@@ -214,7 +256,6 @@ body {
 
 .play-music-btn:hover {
   transform: scale(1.05);
-  background: linear-gradient(135deg, #3b76d6, #285bb8);
 }
 
 .custom-audio {
@@ -315,18 +356,33 @@ body {
     <span class="browser-title">Cho m nè Linh lùn 🩵🐱🪻</span>
   </div>
 
-  <!-- TRANG LỜI CHÀO -->
+  <!-- TRANG LỜI CHÀO DẠNG THIỆP MỞ -->
   <section class="page active" id="page-intro">
-    <div class="intro-card">
-      <div style="font-size:24px; margin-bottom:10px;">
-        🎀 🪻 🐱 🦋 🐈‍⬛ 🤍
-      </div>
-      <span style="background:var(--blue-soft); color:var(--blue-main); padding:6px 16px; border-radius:20px; font-size:13px; font-weight:700;">Ê ku e</span>
-      <h1>Nay 20/10 á :))))</h1>
-      <p>T làm cái trang web xinh xinh này tặng m nè.<br>đánh răng ch đó ? 🐧</p>
+    <div class="card-wrapper">
+      <div class="envelope-card" id="mainEnvelope">
+        
+        <!-- MẶT BÌA THIỆP BAN ĐẦU -->
+        <div class="card-cover" id="cardCover">
+          <div class="card-cover-stamp">💌 🎀 🪻</div>
+          <div class="card-cover-title">Thiệp Tặng Linh Lùn ♡</div>
+          <div class="card-cover-subtitle">Một món quà nhỏ nhắn dành riêng cho m (2u5) ♡</div>
+          <button class="btn-primary" onclick="openCard()">Mở thiệp ra nè 💌</button>
+        </div>
 
-      <button class="btn-primary" onclick="switchPage('page-1')" style="margin-top:15px;">Đọc thư t viết nè 💌</button>
-      <div style="font-size:12px; color:#6a8bb1; margin-top:12px;">Mở ra đọc đi màaa :></div>
+        <!-- NỘI DUNG LỜI CHÚC XUẤT HIỆN SAU KHI MỞ BÌA -->
+        <div class="card-inside" id="cardInside">
+          <div style="font-size:24px; margin-bottom:10px;">
+            🎀 🪻 🐱 🦋 🐈‍⬛ 🤍
+          </div>
+          <span style="background:var(--blue-soft); color:var(--blue-main); padding:6px 16px; border-radius:20px; font-size:13px; font-weight:700;">Ê ku e</span>
+          <h1 style="color:var(--blue-main); margin: 12px 0;">Nay 20/10 á :))))</h1>
+          <p style="font-size:16px; color:#3e5a7c;">T làm cái trang web xinh xinh này tặng m nè.<br>đánh răng ch đó ? 🐧</p>
+
+          <button class="btn-primary" onclick="switchPage('page-1')" style="margin-top:15px;">Đọc thư t viết nè 💌</button>
+          <div style="font-size:12px; color:#6a8bb1; margin-top:12px;">Mở ra đọc đi màaa :></div>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -385,20 +441,22 @@ Mong là m thích nó, dù nó không phải món quà gì to tát. T chỉ mu�
 Hay là để có dịp t nấu canh cho m ăn, t bt là m thích lắm nhma cứ ngại nên ko sao đâu t nấu cho m mà đừng có lo 🍲💚
       </div>
 
-      <!-- Khung Trình Phát Nhạc MP3 Hoạt Động 100% -->
+      <!-- Khung Trình Phát Nhạc Dịu Dàng -->
       <div class="music-card-audio">
-        <div class="music-title">🎵 wave to the earth - love 🎧</div>
+        <div class="music-title">🎵 Soft Piano Lofi - Chill Vibe 🎧</div>
         
         <button class="play-music-btn" onclick="toggleAudio(event)">
-          <span id="playIcon">▶</span> <span id="playText">Bấm vào đây để nghe nhạc nè 🎶</span>
+          <span id="playIcon">▶</span> <span id="playText">Bật nhạc dịu nhẹ nghe nè 🎶</span>
         </button>
 
         <br>
-        <audio id="bgMusic" class="custom-audio" controls preload="metadata">
-          <source src="https://archive.org/download/wave-to-the-earth-love/wave%20to%20the%20earth%20-%20love.mp3" type="audio/mpeg">
+        <audio id="bgMusic" class="custom-audio" controls preload="auto" loop>
+          <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
         </audio>
         
-        <div class="video-note">t thấy m nghe cũng nhiều nên :))))</div>
+        <div style="font-size:13px; color:#6a8bb1; margin-top:10px; font-style:italic; font-weight:600;">
+          bản nhạc dịu dịu nghe cho chill nè :))))
+        </div>
       </div>
 
       <div class="nav-buttons">
@@ -432,6 +490,17 @@ Hay là để có dịp t nấu canh cho m ăn, t bt là m thích lắm nhma c�
 </div>
 
 <script>
+function openCard() {
+  const card = document.getElementById('mainEnvelope');
+  const cover = document.getElementById('cardCover');
+  const inside = document.getElementById('cardInside');
+
+  // Hiệu ứng mở bìa thiệp
+  cover.style.display = 'none';
+  inside.style.display = 'block';
+  triggerCatRain();
+}
+
 function switchPage(pageId) {
   document.querySelectorAll('.page').forEach(page => {
     page.classList.remove('active');
@@ -448,14 +517,12 @@ function toggleAudio(e) {
 
   if (music.paused) {
     music.play().then(() => {
-      text.textContent = 'Đang phát wave to the earth - love 🎵';
+      text.textContent = 'Đang phát nhạc dịu nhẹ 🎵 (Tạm dừng)';
       icon.textContent = '⏸';
-    }).catch(err => {
-      // Nếu bấm nút custom chưa chạy thì người dùng có thể bấm trực tiếp thanh điều khiển audio ở dưới
-    });
+    }).catch(err => {});
   } else {
     music.pause();
-    text.textContent = 'Bấm vào đây để nghe nhạc nè 🎶';
+    text.textContent = 'Bật nhạc dịu nhẹ nghe nè 🎶';
     icon.textContent = '▶';
   }
 }
