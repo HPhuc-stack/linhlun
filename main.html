@@ -195,39 +195,33 @@ body {
   white-space: pre-line;
 }
 
-/* Khung Embed YouTube Nhạc Xịn Phát Trực Tiếp */
-.music-container {
+/* Trình Phát Nhạc Audio Trực Tiếp Chuẩn Dễ Thương */
+.music-card-audio {
   margin-top: 20px;
-  background: #eaf3ff;
+  background: linear-gradient(135deg, #eaf3ff 0%, #d8eafe 100%);
   border: 2px dashed #9bc3f5;
   border-radius: 20px;
-  padding: 15px;
+  padding: 20px 18px;
   text-align: center;
 }
 
 .music-title {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--blue-main);
   font-weight: 800;
   margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
-.video-wrapper {
-  position: relative;
-  padding-bottom: 56.25%; /* Tỉ lệ 16:9 chuẩn */
-  height: 0;
-  overflow: hidden;
-  border-radius: 14px;
-  box-shadow: 0 8px 20px rgba(59, 113, 202, 0.18);
-}
-
-.video-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
+.custom-audio-player {
   width: 100%;
-  height: 100%;
-  border: none;
+  max-width: 480px;
+  height: 42px;
+  border-radius: 30px;
+  outline: none;
 }
 
 .video-note {
@@ -384,7 +378,7 @@ Mong bạn sẽ luôn xinh như hoa, đẹp, gặp nhiều may mắn và đượ
     </div>
   </section>
 
-  <!-- TRANG LỜI NHẮN 3/3 (KHUNG PHÁT NHẠC XIN TRỰC TIẾP TRÊN WEB) -->
+  <!-- TRANG LỜI NHẮN 3/3 (AUDIO PLAYER PHÁT NHẠC TRỰC TIẾP) -->
   <section class="page" id="page-3">
     <div class="letter-box">
       <div class="letter-header">
@@ -397,17 +391,13 @@ Mong là m thích nó, dù nó không phải món quà gì to tát. T chỉ mu�
 Hay là để có dịp t nấu canh cho m ăn, t bt là m thích lắm nhma cứ ngại nên ko sao đâu t nấu cho m mà đừng có lo 🍲💚
       </div>
 
-      <!-- Khung Video Nhạc Chuẩn Không Bị Lỗi Chặn Nhúng -->
-      <div class="music-container">
-        <div class="music-title">🎵 wave to the earth - love</div>
-        <div class="video-wrapper">
-          <iframe 
-            src="https://www.youtube-nocookie.com/embed/VpX32F51iTo?rel=0" 
-            title="wave to the earth - love" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-          </iframe>
-        </div>
+      <!-- Khung Trình Phát Nhạc MP3 Phát Trực Tiếp -->
+      <div class="music-card-audio">
+        <div class="music-title">🎵 wave to the earth - love 🎧</div>
+        <audio id="bgMusic" class="custom-audio-player" controls preload="auto">
+          <source src="https://files.catbox.moe/c8o8k6.mp3" type="audio/mpeg">
+          Trình duyệt của bạn không hỗ trợ phát âm nhạc trực tiếp.
+        </audio>
         <div class="video-note">t thấy m nghe cũng nhiều nên :))))</div>
       </div>
 
@@ -447,6 +437,15 @@ function switchPage(pageId) {
     page.classList.remove('active');
   });
   document.getElementById(pageId).classList.add('active');
+  
+  // Tự động phát nhạc khi Linh lùn sang trang 3
+  if (pageId === 'page-3') {
+    const music = document.getElementById('bgMusic');
+    if (music) {
+      music.play().catch(() => {});
+    }
+  }
+  
   triggerCatRain();
 }
 
