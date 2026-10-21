@@ -366,4 +366,145 @@ Nay 20/10, Ngày Phụ nữ Việt Nam á :)))) T cũng không biết làm gì n
 Thì :)))) chắc cũng giống cái sinh nhật m làm cho t á, nhưng mà lần này là t chúc cho m ykyk 😏
       </div>
       
-      <div class="nav
+      <div class="nav-buttons">
+        <button class="btn-secondary" onclick="switchPage('page-intro')">‹ Quay lại Intro</button>
+        <button class="btn-primary" onclick="switchPage('page-2')">Trang tiếp ›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANG LỜI NHẮN 2/3 -->
+  <section class="page" id="page-2">
+    <div class="letter-box">
+      <div class="letter-header">
+        <h3>Lời chúc chân thành 🌸 (Trang 2/3)</h3>
+        <div>🐈‍⬛ 🌷</div>
+      </div>
+      <div class="letter-content">
+Thật thì t ko bt chúc gì nữa 🐧 chắc chúc m có cơ hội cao thêm vài cm hay là uhhhhhhhh ( khó quá bỏ qua ).
+
+Tính ra tới h t vs m chơi với nhau hơn nửa năm r t chỉ thích m khóc với cười th 👀 nên t mong m luôn có nhiều niềm vui nè hay là kỷ niệm các thứ để lúc nào buồn nhớ lại cũng đc, lúc nào m cười nghe giọng m cũng khiến t dễ chịu hết trơn á nên là t thích nghe m cười nh hơn.
+
+Mong bạn sẽ luôn xinh như hoa, đẹp, gặp nhiều may mắn và được yêu thương thật nhiều nha. Mong là dù có chuyện gì xảy ra thì m sẽ kể cho t nghe để ko có buồn phiền hay gì đó (m bt t nhiều chuyện mà 🐧💔)
+      </div>
+
+      <div class="nav-buttons">
+        <button class="btn-secondary" onclick="switchPage('page-1')">‹ Trước</button>
+        <button class="btn-primary" onclick="switchPage('page-3')">Trang tiếp ›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANG LỜI NHẮN 3/3 -->
+  <section class="page" id="page-3">
+    <div class="letter-box">
+      <div class="letter-header">
+        <h3>Happy ku e ♡ (Trang 3/3)</h3>
+        <div>🐱 🪻 🦋</div>
+      </div>
+      <div class="letter-content">
+Mong là m thích nó, dù nó không phải món quà gì to tát. T chỉ muốn nhân dịp này làm một cái gì đó riêng cho m th, kiểu ít nhất thì làm cái gì đó giet tg của m chẵ hạn nên t làm cái này dài dài cho m đọc đi đọc lại chơi chơi v đó :))))
+
+Hay là để có dịp t nấu canh cho m ăn, t bt là m thích lắm nhma cứ ngại nên ko sao đâu t nấu cho m mà đừng có lo 🍲💚
+      </div>
+
+      <!-- Khung Audio Nhạc Hoạt Động 100% -->
+      <div class="music-card-audio">
+        <div class="music-title">🎵 wave to the earth - love 🎧</div>
+        
+        <button class="play-music-btn" onclick="toggleAudio()">
+          <span id="playIcon">▶</span> <span id="playText">Phát nhạc cho m nghe nè 🎶</span>
+        </button>
+
+        <audio id="bgMusic" class="custom-audio-player" controls preload="auto">
+          <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
+        </audio>
+        
+        <div class="video-note">t thấy m nghe cũng nhiều nên :))))</div>
+      </div>
+
+      <div class="nav-buttons">
+        <button class="btn-secondary" onclick="switchPage('page-2')">‹ Trước</button>
+        <button class="btn-primary" onclick="switchPage('page-end')">Trang kết ›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANG KẾT BÌA THIỆP -->
+  <section class="page" id="page-end">
+    <div class="card-end-box">
+      <div style="font-size:36px; margin-bottom:10px;">🎀 🪻 🐱 🐈‍⬛ 🦋</div>
+      <h3 style="color: var(--blue-main); font-size:24px; margin-top:0; font-weight:800;">Lời kết cho Linh lùn ♡</h3>
+      
+      <p style="font-size:16px; line-height:1.85; color:#344e6d; margin:20px 0; font-weight:600;">
+        "Xin lỗi t ko bt nói lời hoa mỹ cho lắm nên ko làm m vui các thứ đc nhma t đã cố r 😓 nên mong là đừng eoooooooo eoooooooo eooooooooo :))))"
+      </p>
+
+      <div style="font-size:13px; color:#6a8bb1; font-style:italic; margin-top:25px; font-weight:700;">
+        m vui là t thành công r 👀
+      </div>
+
+      <div class="nav-buttons" style="justify-content:center; gap:15px; margin-top:30px;">
+        <button class="btn-secondary" onclick="switchPage('page-3')">‹ Quay lại Trang 3</button>
+        <button class="btn-primary" onclick="triggerCatRain()">Thả mèo & hoa ✨</button>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+function switchPage(pageId) {
+  document.querySelectorAll('.page').forEach(page => {
+    page.classList.remove('active');
+  });
+  document.getElementById(pageId).classList.add('active');
+  
+  if (pageId === 'page-3') {
+    const music = document.getElementById('bgMusic');
+    if (music) {
+      music.play().then(() => {
+        document.getElementById('playText').textContent = 'Đang phát nhạc 🎵';
+        document.getElementById('playIcon').textContent = '⏸';
+      }).catch(() => {});
+    }
+  }
+  
+  triggerCatRain();
+}
+
+function toggleAudio() {
+  const music = document.getElementById('bgMusic');
+  const text = document.getElementById('playText');
+  const icon = document.getElementById('playIcon');
+
+  if (music.paused) {
+    music.play();
+    text.textContent = 'Tạm dừng nhạc ⏸';
+    icon.textContent = '⏸';
+  } else {
+    music.pause();
+    text.textContent = 'Bật nhạc nghe nè 🎶';
+    icon.textContent = '▶';
+  }
+}
+
+function triggerCatRain() {
+  const icons = ['🐱', '🐈‍⬛', '🪻', '🌸', '🌷', '🦋', '🎀', '✨', '🤍', '☁️'];
+  for (let i = 0; i < 20; i++) {
+    setTimeout(() => {
+      const item = document.createElement('div');
+      item.className = 'drop-item';
+      item.textContent = icons[Math.floor(Math.random() * icons.length)];
+      item.style.left = Math.random() * 95 + 'vw';
+      item.style.animationDuration = (Math.random() * 2 + 2) + 's';
+      document.body.appendChild(item);
+
+      setTimeout(() => item.remove(), 4000);
+    }, i * 120);
+  }
+}
+</script>
+
+</body>
+</html>
