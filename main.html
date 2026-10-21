@@ -1,11 +1,10 @@
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#d2e4f9">
-<title>Cho m nè 🩵🪻</title>
+<title>Một chiếc thiệp dành cho m 🪻</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,311 +12,379 @@
 
 <style>
 :root {
-  --blue-main: #3b71ca;
-  --blue-soft: #d2e4f9;
-  --blue-accent: #629bf0;
-  --text-dark: #1e3550;
-  --white: #ffffff;
+  --bg: #dceafa;
+  --paper: #fffdf8;
+  --paper-blue: #edf5ff;
+  --blue: #638dc5;
+  --blue-dark: #395b83;
+  --blue-light: #c5dbf4;
+  --text: #40556e;
 }
 
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
-  padding: 0;
-  font-family: 'Nunito', sans-serif;
-  background: radial-gradient(circle at 50% 30%, #eef5fc 0%, #cbe0f8 60%, #b5d3f5 100%);
-  color: var(--text-dark);
   min-height: 100vh;
+  padding: 22px 12px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  overflow-x: hidden;
-  position: relative;
-}
-
-button, input, textarea {
+  justify-content: center;
+  background:
+    radial-gradient(ellipse at top left, #f5f9ff, transparent 55%),
+    linear-gradient(145deg, #d9e9fa, #c4dbf4);
+  color: var(--text);
   font-family: 'Nunito', sans-serif;
+  overflow-x: hidden;
 }
 
-h1, h2, h3, h4, .handwriting-title, .handwriting-sub {
+h1, h2, h3, .title {
   font-family: 'Quicksand', sans-serif;
 }
 
-.bg-deco {
+button { font-family: inherit; }
+
+.decor {
   position: fixed;
-  font-size: 28px;
-  opacity: .8;
   pointer-events: none;
-  z-index: 1;
-  animation: float 4s ease-in-out infinite alternate;
-  filter: drop-shadow(0 4px 10px rgba(74,128,214,.2));
+  user-select: none;
+  opacity: .65;
+  font-size: 27px;
+  animation: drift 5s ease-in-out infinite alternate;
 }
 
-.deco-1 { top: 6%; left: 5%; }
-.deco-2 { top: 8%; right: 6%; animation-delay: 1s; }
-.deco-3 { bottom: 8%; left: 6%; animation-delay: 2s; }
-.deco-4 { bottom: 10%; right: 5%; animation-delay: 1.5s; }
-.deco-5 { top: 45%; left: 2%; animation-delay: .5s; }
-.deco-6 { top: 50%; right: 2%; animation-delay: 2.5s; }
+.d1 { top: 7%; left: 6%; }
+.d2 { top: 12%; right: 7%; animation-delay: 1s; }
+.d3 { bottom: 9%; left: 8%; animation-delay: 2s; }
+.d4 { bottom: 8%; right: 6%; animation-delay: .7s; }
 
-@keyframes float {
-  from { transform: translateY(0) rotate(0); }
-  to { transform: translateY(-12px) rotate(8deg); }
+@keyframes drift {
+  from { transform: translateY(0) rotate(-5deg); }
+  to { transform: translateY(-12px) rotate(5deg); }
 }
 
-.browser-container {
-  width: min(880px, 94vw);
-  background: linear-gradient(135deg, rgba(235,244,255,.96), rgba(210,230,255,.94));
-  backdrop-filter: blur(12px);
-  border-radius: 28px;
-  box-shadow: 0 20px 50px rgba(59,113,202,.25);
-  border: 3px solid rgba(255,255,255,.95);
+.window {
+  width: min(760px, 100%);
+  border: 2px solid rgba(255,255,255,.95);
+  border-radius: 24px;
   overflow: hidden;
+  background: rgba(248,251,255,.8);
+  box-shadow: 0 22px 65px rgba(63,99,143,.2);
   position: relative;
-  margin: 20px 0;
-  z-index: 10;
+  z-index: 2;
 }
 
-.browser-bar {
-  background: linear-gradient(90deg, #d8e8fb, #eaf3fd);
-  padding: 12px 20px;
+.window-bar {
+  height: 43px;
+  padding: 0 16px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  border-bottom: 2px solid #c2dbf7;
+  gap: 7px;
+  background: #e7f0fc;
+  border-bottom: 1px solid #d1e2f5;
 }
 
-.dot { width: 10px; height: 10px; border-radius: 50%; }
-.dot-red { background: #ff6b6b; }
-.dot-yellow { background: #fabca1; }
-.dot-green { background: #5cdb95; }
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
 
-.browser-title {
-  margin-left: 12px;
-  font-size: 13px;
-  color: #4b6f96;
+.red { background: #eaa6a6; }
+.yellow { background: #e9d19b; }
+.green { background: #a5d1b5; }
+
+.window-label {
+  margin-left: 8px;
+  color: #7088a6;
+  font-size: 12px;
   font-weight: 800;
 }
 
 .page {
-  padding: 40px 35px;
-  min-height: 580px;
   display: none;
-  flex-direction: column;
-  justify-content: center;
+  min-height: 560px;
+  padding: 34px 24px;
   align-items: center;
-  text-align: center;
-  animation: fadeIn .4s ease-in-out;
-  background-image: radial-gradient(rgba(255,255,255,.6) 2px, transparent 2px);
-  background-size: 24px 24px;
+  justify-content: center;
+  background:
+    radial-gradient(#d8e7f7 1px, transparent 1px),
+    #f0f6fd;
+  background-size: 22px 22px;
+  animation: appear .4s ease;
 }
 
 .page.active { display: flex; }
 
-.card-wrapper { max-width: 520px; width: 100%; }
-
-.envelope-card {
-  width: 100%;
-  background: linear-gradient(160deg, #1d3557 0%, #457b9d 50%, #a8dadc 100%);
-  border: 2px solid #a8d0fb;
-  border-radius: 28px;
-  padding: 45px 30px;
-  box-shadow: 0 16px 38px rgba(29,53,87,.35);
-  position: relative;
-  color: #fff;
-  overflow: hidden;
-}
-
-.envelope-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 80% 20%, rgba(255,255,255,.25), transparent 50%);
-  pointer-events: none;
-}
-
-#cardCover, #cardInside { position: relative; z-index: 1; }
-
-.handwriting-title {
-  font-size: 36px;
-  line-height: 1.35;
-  color: #fff;
-  text-shadow: 0 2px 10px rgba(0,0,0,.2);
-  margin: 15px 0;
-  font-weight: 700;
-}
-
-.handwriting-sub {
-  font-size: 21px;
-  color: #d8eafe;
-  margin-bottom: 25px;
-  line-height: 1.6;
-}
-
-.card-inside {
-  display: none;
-  animation: fadeIn .6s ease-in-out forwards;
-}
-
-.letter-box {
-  background: linear-gradient(160deg, #fff, #f4f8fe);
-  border-radius: 26px;
-  border: 2px solid #bce0fd;
-  padding: 35px 32px;
-  max-width: 650px;
-  width: 100%;
-  box-shadow: 0 16px 38px rgba(59,113,202,.16);
-  text-align: left;
-  position: relative;
-  z-index: 20;
-}
-
-.card-end-box {
-  background: linear-gradient(135deg, #1d3557, #3a6073);
-  border-radius: 28px;
-  border: 2px double #a3cbf7;
-  padding: 40px 32px;
-  max-width: 600px;
-  width: 100%;
-  box-shadow: 0 18px 40px rgba(29,53,87,.3);
-  text-align: center;
-  position: relative;
-  color: #fff;
-}
-
-.letter-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
-  border-bottom: 2px dashed #cbe0f8;
-  padding-bottom: 12px;
-}
-
-.letter-header h3 {
-  margin: 0;
-  color: var(--blue-main);
-  font-size: 21px;
-  font-weight: 800;
-}
-
-.letter-content {
-  font-size: 16px;
-  line-height: 1.9;
-  color: #344e6d;
-  white-space: pre-line;
-}
-
-.music-card-audio {
-  margin-top: 20px;
-  background: linear-gradient(135deg, #eaf3ff, #d8eafe);
-  border: 2px dashed #9bc3f5;
-  border-radius: 20px;
-  padding: 20px 18px;
-  text-align: center;
-  position: relative;
-  z-index: 30;
-}
-
-.music-title {
-  font-size: 15px;
-  color: var(--blue-main);
-  font-weight: 800;
-  margin-bottom: 12px;
-}
-
-.play-music-btn, .btn-primary {
-  background: linear-gradient(135deg, #4a84e3, #336bc7);
-  color: #fff;
-  border: none;
-  padding: 13px 28px;
-  border-radius: 50px;
-  font-size: 15px;
-  font-weight: 800;
-  cursor: pointer;
-  box-shadow: 0 8px 22px rgba(59,113,202,.3);
-  transition: transform .2s ease, box-shadow .2s ease;
-  text-decoration: none;
-  display: inline-block;
-}
-
-.play-music-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  position: relative;
-  z-index: 40;
-}
-
-.btn-primary:hover, .play-music-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(59,113,202,.4);
-}
-
-.btn-secondary {
-  background: #eaf3ff;
-  color: var(--blue-main);
-  border: 1.5px solid #a8d0fb;
-  padding: 12px 22px;
-  border-radius: 50px;
-  font-size: 14px;
-  font-weight: 800;
-  cursor: pointer;
-  transition: all .2s ease;
-}
-
-.btn-secondary:hover {
-  background: var(--blue-main);
-  color: #fff;
-}
-
-.nav-buttons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  margin-top: 25px;
-}
-
-.custom-audio {
-  width: 100%;
-  max-width: 420px;
-  height: 40px;
-  margin-top: 12px;
-}
-
-.drop-item {
-  position: fixed;
-  top: -40px;
-  font-size: 28px;
-  pointer-events: none;
-  z-index: 50;
-  animation: fall linear forwards;
-}
-
-@keyframes fall {
-  to { transform: translateY(105vh) rotate(360deg); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
+@keyframes appear {
+  from { opacity: 0; transform: translateY(7px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-@media (max-width: 650px) {
-  .page { padding: 24px 14px; min-height: 540px; }
-  .envelope-card { padding: 35px 20px; }
-  .letter-box, .card-end-box { padding: 25px 20px; }
-  .letter-header h3 { font-size: 18px; }
-  .handwriting-title { font-size: 31px; }
-  .letter-content { font-size: 15px; }
-  .nav-buttons { gap: 8px; }
-  .btn-primary, .btn-secondary { padding: 11px 16px; font-size: 13px; }
+/* TRANG BÌA THIỆP */
+.cover-wrap {
+  width: min(460px, 100%);
+  perspective: 1000px;
 }
 
-@media (prefers-reduced-motion: reduce) {
+.cover {
+  min-height: 440px;
+  border-radius: 8px 8px 20px 20px;
+  padding: 15px;
+  background: #c0d8f2;
+  box-shadow: 0 18px 35px rgba(70,105,150,.22);
+  transform: rotate(-1deg);
+}
+
+.cover-inner {
+  min-height: 410px;
+  padding: 28px 22px;
+  border: 1px solid rgba(255,255,255,.9);
+  outline: 1px solid rgba(255,255,255,.55);
+  outline-offset: -8px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.55), transparent 65%),
+    #e7f1fc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cover-inner::before,
+.cover-inner::after {
+  content: "";
+  position: absolute;
+  width: 125px;
+  height: 125px;
+  border: 1px solid rgba(97,137,184,.25);
+  border-radius: 50%;
+}
+
+.cover-inner::before { top: -65px; left: -55px; }
+.cover-inner::after { bottom: -65px; right: -55px; }
+
+.stamp {
+  width: 92px;
+  height: 108px;
+  background: #f9fcff;
+  border: 1px dashed #8eadd0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  transform: rotate(4deg);
+  margin-bottom: 22px;
+  box-shadow: 2px 3px 0 rgba(76,110,151,.08);
+}
+
+.stamp-flower { font-size: 38px; }
+
+.stamp-caption {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #7793b6;
+  font-weight: 800;
+}
+
+.cover-kicker {
+  color: #728fb2;
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.cover h1 {
+  color: #395b83;
+  font-size: clamp(27px, 5vw, 38px);
+  line-height: 1.3;
+  margin: 13px 0 8px;
+}
+
+.cover-sub {
+  font-size: 14px;
+  line-height: 1.8;
+  max-width: 290px;
+  color: #66809f;
+  margin: 0 0 25px;
+}
+
+.open-btn, .primary-btn, .secondary-btn {
+  border: 0;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 800;
+  transition: transform .2s, box-shadow .2s, background .2s;
+}
+
+.open-btn, .primary-btn {
+  background: #648dc2;
+  color: white;
+  padding: 13px 25px;
+  box-shadow: 0 7px 16px rgba(74,112,161,.2);
+}
+
+.open-btn:hover, .primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(74,112,161,.25);
+}
+
+.cover-foot {
+  color: #7c98b8;
+  font-size: 11px;
+  margin-top: 17px;
+}
+
+/* CÁC TRANG THƯ */
+.letter {
+  width: min(570px, 100%);
+  padding: 28px 30px;
+  background: var(--paper);
+  border: 1px solid #d7e5f5;
+  box-shadow: 0 12px 28px rgba(76,108,148,.1);
+  position: relative;
+}
+
+.letter::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid #e4edf7;
+  pointer-events: none;
+}
+
+.letter-top, .letter-body, .navigation {
+  position: relative;
+  z-index: 1;
+}
+
+.letter-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px dashed #c5d8ed;
+  margin-bottom: 23px;
+}
+
+.letter-top h2 {
+  margin: 0;
+  color: #5279a8;
+  font-size: 19px;
+}
+
+.page-number {
+  color: #8aa3c1;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.letter-body {
+  font-size: 15px;
+  line-height: 2;
+  white-space: pre-line;
+  color: #4c6077;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 27px;
+}
+
+.primary-btn, .secondary-btn {
+  padding: 11px 20px;
+  font-size: 13px;
+}
+
+.secondary-btn {
+  background: #e8f1fc;
+  color: #5279a8;
+  border: 1px solid #cbdcf0;
+}
+
+.secondary-btn:hover {
+  background: #dceafb;
+}
+
+.end-card {
+  width: min(550px, 100%);
+  padding: 38px 28px;
+  background: #e8f1fc;
+  border: 1px solid #c8dcef;
+  box-shadow: 0 12px 30px rgba(76,108,148,.12);
+  text-align: center;
+}
+
+.end-card h2 {
+  color: #466d9b;
+  font-size: 30px;
+  margin: 12px 0;
+}
+
+.end-card p {
+  line-height: 1.9;
+  font-size: 15px;
+}
+
+.music-box {
+  margin-top: 22px;
+  padding: 17px;
+  background: #f9fcff;
+  border: 1px dashed #b8cfe8;
+}
+
+.music-box p {
+  color: #6984a5;
+  font-size: 13px;
+}
+
+.music-link {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 30px;
+  background: #648dc2;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.fall {
+  position: fixed;
+  top: -40px;
+  pointer-events: none;
+  z-index: 20;
+  animation: falling linear forwards;
+}
+
+@keyframes falling {
+  to { transform: translateY(110vh) rotate(360deg); }
+}
+
+@media(max-width: 520px) {
+  body { padding: 10px; }
+  .page { padding: 20px 12px; min-height: 540px; }
+  .cover { min-height: 400px; padding: 10px; }
+  .cover-inner { min-height: 380px; padding: 24px 15px; }
+  .letter { padding: 23px 19px; }
+  .letter-body { font-size: 14px; line-height: 1.9; }
+  .letter-top h2 { font-size: 16px; }
+  .navigation { gap: 7px; }
+  .primary-btn, .secondary-btn { padding: 10px 13px; }
+}
+
+@media(prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
@@ -329,247 +396,172 @@ h1, h2, h3, h4, .handwriting-title, .handwriting-sub {
 
 <body>
 
-<div class="bg-deco deco-1">🎀 🪻</div>
-<div class="bg-deco deco-2">🦋 🐈‍⬛</div>
-<div class="bg-deco deco-3">☁️ 🤍</div>
-<div class="bg-deco deco-4">🌷 🦋</div>
-<div class="bg-deco deco-5">🪻 🐱</div>
-<div class="bg-deco deco-6">🎀 🪻</div>
+<div class="decor d1">🪻</div>
+<div class="decor d2">🦋</div>
+<div class="decor d3">🐈‍⬛</div>
+<div class="decor d4">🎀</div>
 
-<main class="browser-container">
-  <div class="browser-bar">
-    <span class="dot dot-red"></span>
-    <span class="dot dot-yellow"></span>
-    <span class="dot dot-green"></span>
-    <span class="browser-title">Một chiếc thiệp nhỏ 🩵🪻</span>
+<main class="window">
+  <div class="window-bar">
+    <span class="dot red"></span>
+    <span class="dot yellow"></span>
+    <span class="dot green"></span>
+    <span class="window-label">a little letter for you</span>
   </div>
 
-  <!-- BÌA THIỆP -->
-  <section class="page active" id="page-intro">
-    <div class="card-wrapper">
-      <div class="envelope-card">
-        <div id="cardCover">
-          <div style="font-size:42px;margin-bottom:10px;">🪻 🦋 🐧</div>
-
-          <div class="handwriting-title">Ê m ơiii ♡</div>
-          <div class="handwriting-title" style="font-size:29px;color:#f1faee;">
-            Nay là ngày lễ á :))))
+  <!-- BÌA THIỆP: CHƯA MỞ THÌ CHƯA HIỆN LỜI CHÚC -->
+  <section class="page active" id="coverPage">
+    <div class="cover-wrap">
+      <div class="cover">
+        <div class="cover-inner">
+          <div class="stamp">
+            <span class="stamp-flower">🪻</span>
+            <span class="stamp-caption">FOR YOU</span>
           </div>
 
-          <div class="handwriting-sub" style="margin-top:15px;">
-            Nên là... t có cái này muốn tặng m nè.
-          </div>
-
-          <div style="font-size:14px;color:#e0e1dd;margin-bottom:25px;">
-            Đừng chê nha, t làm cũng có tâm lắm đó 💖 🐧
-          </div>
-
-          <button class="btn-primary" onclick="openCard()">
-            Rồi rồi, mở coi ♡ ›
-          </button>
-
-          <div style="font-size:12px;color:#d8eafe;margin-top:12px;">
-            Mở ra đi màaa ›
-          </div>
-        </div>
-
-        <div class="card-inside" id="cardInside">
-          <div style="font-size:24px;margin-bottom:10px;">
-            🎀 🪻 🐱 🦋 🐈‍⬛ 🤍
-          </div>
-
-          <span style="background:var(--blue-soft);color:var(--blue-main);padding:6px 16px;border-radius:20px;font-size:13px;font-weight:800;">
-            Có cái này cho m nè
-          </span>
-
-          <h1 style="color:#fff;margin:15px 0 10px;">
-            Nay 20/10 á :))))
-          </h1>
-
-          <p style="font-size:16px;color:#e0e1dd;line-height:1.8;">
-            T làm cái trang web xinh xinh này tặng m nè.<br>
-            Đánh răng chưa đó? 🐧
+          <div class="cover-kicker">20 · 10 · 2026</div>
+          <h1>Cho m nè</h1>
+          <p class="cover-sub">
+            Một chiếc thiệp nhỏ t làm riêng cho m.<br>
+            Mở ra xem thử đi :))))
           </p>
 
-          <button class="btn-primary" onclick="switchPage('page-1')" style="margin-top:15px;">
-            Đọc thư t viết nè 💌
+          <button class="open-btn" onclick="openLetter()">
+            Mở thiệp ra ✉
           </button>
 
-          <div style="font-size:12px;color:#d8eafe;margin-top:12px;">
-            Mở ra đọc đi màaa :&gt;
-          </div>
+          <div class="cover-foot">được làm bằng một chút thời gian của t</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- LỜI NHẮN 1 -->
-  <section class="page" id="page-1">
-    <div class="letter-box">
-      <div class="letter-header">
-        <h3>Gửi m 🪻 (Trang 1/3)</h3>
-        <div>🐱 🦋</div>
-      </div>
+  <!-- TRANG 1 -->
+  <section class="page" id="page1">
+    <article class="letter">
+      <header class="letter-top">
+        <h2>Gửi m 🪻</h2>
+        <span class="page-number">01 / 03</span>
+      </header>
 
-      <div class="letter-content">Nay 20/10, Ngày Phụ nữ Việt Nam á :)))) T cũng không biết làm gì nhiều để tặng m nên t làm cái này cho m đọc chơi chơi thui.
+      <div class="letter-body">Nay 20/10, Ngày Phụ nữ Việt Nam á :)))) T cũng không biết làm gì nhiều để tặng m nên t làm cái này cho m đọc chơi chơi thui.
 
 Thì :)))) chắc cũng giống cái sinh nhật m làm cho t á, nhưng mà lần này là t chúc cho m ykyk 😏</div>
 
-      <div class="nav-buttons">
-        <button class="btn-secondary" onclick="switchPage('page-intro')">‹ Quay lại</button>
-        <button class="btn-primary" onclick="switchPage('page-2')">Trang tiếp ›</button>
+      <div class="navigation">
+        <button class="secondary-btn" onclick="goTo('coverPage')">‹ Đóng thiệp</button>
+        <button class="primary-btn" onclick="goTo('page2')">Đọc tiếp ›</button>
       </div>
-    </div>
+    </article>
   </section>
 
-  <!-- LỜI NHẮN 2 -->
-  <section class="page" id="page-2">
-    <div class="letter-box">
-      <div class="letter-header">
-        <h3>Lời chúc của t 🌸 (Trang 2/3)</h3>
-        <div>🐈‍⬛ 🌷</div>
-      </div>
+  <!-- TRANG 2 -->
+  <section class="page" id="page2">
+    <article class="letter">
+      <header class="letter-top">
+        <h2>Lời chúc của t</h2>
+        <span class="page-number">02 / 03</span>
+      </header>
 
-      <div class="letter-content">Thật thì t ko bt chúc gì nữa 🐧 chắc chúc m có cơ hội cao thêm vài cm hay là uhhhhhhhh (khó quá bỏ qua).
+      <div class="letter-body">Thật thì t ko bt chúc gì nữa 🐧 chắc chúc m có cơ hội cao thêm vài cm hay là uhhhhhhhh (khó quá bỏ qua).
 
 Tính ra tới h t vs m chơi với nhau hơn nửa năm r. T chỉ thích m khóc với cười th 👀 nên t mong m luôn có nhiều niềm vui nè, hay là có thêm nhiều kỷ niệm để lúc nào buồn nhớ lại cũng đc.
 
-Lúc nào m cười, nghe giọng m cũng khiến t dễ chịu hết trơn á, nên là t thích nghe m cười nh hơn.
+Lúc nào m cười, nghe giọng m cũng khiến t dễ chịu hết trơn á nên là t thích nghe m cười nh hơn.
 
-Mong m luôn xinh, gặp nhiều may mắn và được yêu thương thật nhiều nha. Mong là dù có chuyện gì xảy ra thì m sẽ kể cho t nghe, để m ko phải giữ hết buồn phiền một mình (m bt t nhiều chuyện mà 🐧💔).</div>
+Mong m luôn xinh, gặp nhiều may mắn và được yêu thương thật nhiều nha. Mong là dù có chuyện gì xảy ra thì m sẽ kể cho t nghe để ko phải giữ hết buồn phiền một mình (m bt t nhiều chuyện mà 🐧💔).</div>
 
-      <div class="nav-buttons">
-        <button class="btn-secondary" onclick="switchPage('page-1')">‹ Trước</button>
-        <button class="btn-primary" onclick="switchPage('page-3')">Trang tiếp ›</button>
+      <div class="navigation">
+        <button class="secondary-btn" onclick="goTo('page1')">‹ Trang trước</button>
+        <button class="primary-btn" onclick="goTo('page3')">Đọc tiếp ›</button>
       </div>
-    </div>
+    </article>
   </section>
 
-  <!-- LỜI NHẮN 3 -->
-  <section class="page" id="page-3">
-    <div class="letter-box">
-      <div class="letter-header">
-        <h3>Cuối thư rùi ♡ (Trang 3/3)</h3>
-        <div>🐱 🪻 🦋</div>
+  <!-- TRANG 3 -->
+  <section class="page" id="page3">
+    <article class="letter">
+      <header class="letter-top">
+        <h2>Thêm một chút nữa</h2>
+        <span class="page-number">03 / 03</span>
+      </header>
+
+      <div class="letter-body">Mong là m thích nó, dù nó không phải món quà gì to tát. T chỉ muốn nhân dịp này làm một cái gì đó riêng cho m th, kiểu ít nhất thì làm cái gì đó giết thời gian của m chẳng hạn nên t làm cái này dài dài cho m đọc đi đọc lại chơi chơi v đó :))))
+
+Hay là để có dịp t nấu canh cho m ăn. T bt là m thích lắm nhma cứ ngại nên ko sao đâu, t nấu cho m mà đừng có lo 🐧</div>
+
+      <div class="navigation">
+        <button class="secondary-btn" onclick="goTo('page2')">‹ Trang trước</button>
+        <button class="primary-btn" onclick="goTo('endPage')">Trang cuối ›</button>
       </div>
-
-      <div class="letter-content">Mong là m thích nó, dù nó không phải món quà gì to tát. T chỉ muốn nhân dịp này làm một cái gì đó riêng cho m th, kiểu ít nhất thì làm cái gì đó giết thời gian của m chẳng hạn, nên t làm cái này dài dài cho m đọc đi đọc lại chơi chơi v đó :))))
-
-Hay là để có dịp t nấu canh cho m ăn. T bt là m thích lắm nhma cứ ngại, nên ko sao đâu, t nấu cho m mà đừng có lo 🍲💚</div>
-
-      <div class="music-card-audio">
-        <div class="music-title">🎵 Một chút nhạc cho chill 🎧</div>
-
-        <button class="play-music-btn" onclick="toggleAudio(event)">
-          <span id="playIcon">▶</span>
-          <span id="playText">Bật nhạc nghe nè 🎶</span>
-        </button>
-
-        <audio id="bgMusic" class="custom-audio" controls preload="none" loop>
-          <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
-          Trình duyệt của m không hỗ trợ phát nhạc.
-        </audio>
-
-        <div style="font-size:13px;color:#6a8bb1;margin-top:10px;font-style:italic;font-weight:700;">
-          Bật lên nghe chơi chơi nè :))))
-        </div>
-      </div>
-
-      <div class="nav-buttons">
-        <button class="btn-secondary" onclick="switchPage('page-2')">‹ Trước</button>
-        <button class="btn-primary" onclick="switchPage('page-end')">Trang kết ›</button>
-      </div>
-    </div>
+    </article>
   </section>
 
   <!-- TRANG KẾT -->
-  <section class="page" id="page-end">
-    <div class="card-end-box">
-      <div style="font-size:36px;margin-bottom:10px;">🪻 🦋 🐧 🤍 🎀</div>
+  <section class="page" id="endPage">
+    <div class="end-card">
+      <div style="font-size:34px;">🪻 🦋 🐈‍⬛</div>
+      <h2>Vậy thui nè</h2>
 
-      <div class="handwriting-title" style="font-size:30px;margin-bottom:15px;">
-        Vậy thui nè ♡
-      </div>
-
-      <p style="font-size:15px;color:#d8eafe;font-style:italic;margin-bottom:20px;">
-        T làm cái này hơi lâu đó nha :))))
+      <p>
+        Xin lỗi t ko bt nói lời hoa mỹ cho lắm nên ko làm m vui các thứ đc nhma t đã cố r 😓 :))))
       </p>
 
-      <p style="font-size:15px;line-height:1.9;color:#fff;margin:20px 0;font-weight:700;">
-        "Xin lỗi t ko bt nói lời hoa mỹ cho lắm nên ko làm m vui các thứ đc nhma t đã cố r 😓 nên mong là đừng eoooooooo eoooooooo eooooooooo :))))"
+      <p>
+        Happy Vietnamese Women's Day 20/10.<br>
+        Mong m có một ngày thật vui nha.
       </p>
 
-      <div style="font-size:14px;color:#a8dadc;font-style:italic;margin-top:25px;font-weight:800;line-height:1.9;">
-        Happy Vietnamese Women's Day 20/10 ♡<br>
-        m vui là t thành công r 👀
+      <div class="music-box">
+        <strong>🎵 Love — wave to earth</strong>
+        <p>Tại t thấy m nghe bài này cũng nh nên :))))</p>
+        <a class="music-link"
+           href="https://www.youtube.com/results?search_query=wave+to+earth+Love"
+           target="_blank" rel="noopener noreferrer">
+          Mở bài nhạc trên YouTube ↗
+        </a>
       </div>
 
-      <div class="nav-buttons" style="justify-content:center;gap:15px;margin-top:30px;flex-wrap:wrap;">
-        <button class="btn-secondary" onclick="switchPage('page-3')">
-          ‹ Quay lại trang 3
-        </button>
-        <button class="btn-primary" onclick="triggerCatRain()">
-          Thả mèo & hoa ✨
-        </button>
+      <div class="navigation">
+        <button class="secondary-btn" onclick="goTo('page3')">‹ Đọc lại</button>
+        <button class="primary-btn" onclick="goTo('coverPage')">Về bìa thiệp</button>
       </div>
     </div>
   </section>
 </main>
 
 <script>
-function openCard() {
-  document.getElementById('cardCover').style.display = 'none';
-  document.getElementById('cardInside').style.display = 'block';
-  triggerCatRain();
+function openLetter() {
+  goTo('page1');
+  makeFlowers();
 }
 
-function switchPage(pageId) {
-  document.querySelectorAll('.page').forEach(page => {
+function goTo(id) {
+  document.querySelectorAll('.page').forEach(function(page) {
     page.classList.remove('active');
   });
 
-  const target = document.getElementById(pageId);
-  if (target) target.classList.add('active');
+  const next = document.getElementById(id);
+  if (next) next.classList.add('active');
 
-  triggerCatRain();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function toggleAudio(event) {
-  if (event) event.stopPropagation();
+function makeFlowers() {
+  const decorations = ['🪻', '🦋', '🌷', '🎀', '🐈‍⬛'];
 
-  const music = document.getElementById('bgMusic');
-  const text = document.getElementById('playText');
-  const icon = document.getElementById('playIcon');
-
-  if (music.paused) {
-    music.play().then(() => {
-      text.textContent = 'Đang phát nhạc 🎵 (Bấm để tạm dừng)';
-      icon.textContent = '⏸';
-    }).catch(() => {
-      text.textContent = 'Bấm nút phát trên thanh nhạc nhé 🎶';
-    });
-  } else {
-    music.pause();
-    text.textContent = 'Bật nhạc nghe nè 🎶';
-    icon.textContent = '▶';
-  }
-}
-
-function triggerCatRain() {
-  const icons = ['🐱', '🐈‍⬛', '🪻', '🌸', '🌷', '🦋', '🎀', '✨', '🤍', '☁️', '🐧'];
-
-  for (let i = 0; i < 20; i++) {
-    setTimeout(() => {
-      const item = document.createElement('div');
-      item.className = 'drop-item';
-      item.textContent = icons[Math.floor(Math.random() * icons.length)];
-      item.style.left = Math.random() * 95 + 'vw';
-      item.style.animationDuration = (Math.random() * 2 + 2) + 's';
+  for (let i = 0; i < 14; i++) {
+    setTimeout(function() {
+      const item = document.createElement('span');
+      item.className = 'fall';
+      item.textContent = decorations[Math.floor(Math.random() * decorations.length)];
+      item.style.left = Math.random() * 96 + 'vw';
+      item.style.fontSize = (18 + Math.random() * 13) + 'px';
+      item.style.animationDuration = (3 + Math.random() * 2) + 's';
 
       document.body.appendChild(item);
-      setTimeout(() => item.remove(), 4000);
-    }, i * 120);
+      setTimeout(function() { item.remove(); }, 5200);
+    }, i * 110);
   }
 }
 </script>
