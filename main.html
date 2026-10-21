@@ -31,11 +31,12 @@ body {
   position: relative;
 }
 
+/* Các hoa văn trang trí nền (đặt pointer-events: none để không cản trở click) */
 .bg-deco {
   position: fixed;
   font-size: 30px;
   opacity: 0.85;
-  pointer-events: none;
+  pointer-events: none !important;
   z-index: 1;
   animation: float 4s ease-in-out infinite alternate;
   filter: drop-shadow(0 4px 10px rgba(74, 128, 214, 0.25));
@@ -112,15 +113,6 @@ body {
   position: relative;
 }
 
-.intro-card::after {
-  content: '🎀';
-  position: absolute;
-  top: -15px;
-  right: -10px;
-  font-size: 28px;
-  transform: rotate(15deg);
-}
-
 .intro-card h1 {
   font-size: 32px;
   color: var(--blue-main);
@@ -145,6 +137,7 @@ body {
   box-shadow: 0 16px 38px rgba(59, 113, 202, 0.16);
   text-align: left;
   position: relative;
+  z-index: 20;
 }
 
 .card-end-box {
@@ -157,19 +150,6 @@ body {
   box-shadow: 0 18px 40px rgba(59, 113, 202, 0.18);
   text-align: center;
   position: relative;
-}
-
-.card-end-box::before {
-  content: '🎀 🪻 🦋 🐱 🎀';
-  position: absolute;
-  top: -18px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #ffffff;
-  padding: 2px 18px;
-  border-radius: 20px;
-  border: 1.5px solid #a3cbf7;
-  font-size: 16px;
 }
 
 .letter-header {
@@ -195,7 +175,7 @@ body {
   white-space: pre-line;
 }
 
-/* Khung Phát Nhạc MP3 Xịn Xò Mới */
+/* Khung Phát Nhạc Đơn Giản & Bấm Cực Nhạy */
 .music-card-audio {
   margin-top: 20px;
   background: linear-gradient(135deg, #eaf3ff 0%, #d8eafe 100%);
@@ -203,6 +183,8 @@ body {
   border-radius: 20px;
   padding: 20px 18px;
   text-align: center;
+  position: relative;
+  z-index: 30;
 }
 
 .music-title {
@@ -216,38 +198,24 @@ body {
   background: linear-gradient(135deg, #4a84e3, #336bc7);
   color: white;
   border: none;
-  padding: 12px 28px;
+  padding: 14px 32px;
   border-radius: 50px;
   font-size: 15px;
   font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 6px 18px rgba(59, 113, 202, 0.3);
+  cursor: pointer !important;
+  box-shadow: 0 6px 18px rgba(59, 113, 202, 0.35);
   transition: all 0.2s ease;
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  position: relative;
+  z-index: 40;
+  pointer-events: auto !important;
 }
 
 .play-music-btn:hover {
-  transform: scale(1.03);
-}
-
-.custom-audio-player {
-  width: 100%;
-  max-width: 480px;
-  height: 40px;
-  border-radius: 30px;
-  outline: none;
-  margin-top: 12px;
-}
-
-.video-note {
-  font-size: 13px;
-  color: #6a8bb1;
-  margin-top: 10px;
-  font-style: italic;
-  font-weight: 600;
-  text-align: center;
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #3b76d6, #285bb8);
 }
 
 .btn-primary {
@@ -258,16 +226,16 @@ body {
   border-radius: 50px;
   font-size: 15px;
   font-weight: 700;
-  cursor: pointer;
+  cursor: pointer !important;
   box-shadow: 0 8px 22px rgba(59, 113, 202, 0.38);
   transition: all 0.2s ease;
   text-decoration: none;
   display: inline-block;
+  pointer-events: auto !important;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(59, 113, 202, 0.48);
 }
 
 .btn-secondary {
@@ -278,10 +246,11 @@ body {
   border-radius: 50px;
   font-size: 14px;
   font-weight: 700;
-  cursor: pointer;
+  cursor: pointer !important;
   transition: all 0.2s ease;
   text-decoration: none;
   display: inline-block;
+  pointer-events: auto !important;
 }
 
 .btn-secondary:hover {
@@ -300,8 +269,8 @@ body {
   position: fixed;
   top: -40px;
   font-size: 28px;
-  pointer-events: none;
-  z-index: 999;
+  pointer-events: none !important;
+  z-index: 5;
   animation: fall linear forwards;
 }
 
@@ -408,15 +377,15 @@ Mong là m thích nó, dù nó không phải món quà gì to tát. T chỉ mu�
 Hay là để có dịp t nấu canh cho m ăn, t bt là m thích lắm nhma cứ ngại nên ko sao đâu t nấu cho m mà đừng có lo 🍲💚
       </div>
 
-      <!-- Khung Audio Nhạc Hoạt Động 100% -->
+      <!-- Khung Nhạc Chuẩn Bấm Được Nút -->
       <div class="music-card-audio">
         <div class="music-title">🎵 wave to the earth - love 🎧</div>
         
-        <button class="play-music-btn" onclick="toggleAudio()">
-          <span id="playIcon">▶</span> <span id="playText">Phát nhạc cho m nghe nè 🎶</span>
+        <button class="play-music-btn" onclick="toggleAudio(event)">
+          <span id="playIcon">▶</span> <span id="playText">Bấm vào đây để nghe nhạc nè 🎶</span>
         </button>
 
-        <audio id="bgMusic" class="custom-audio-player" controls preload="auto">
+        <audio id="bgMusic" preload="auto">
           <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
         </audio>
         
@@ -459,32 +428,25 @@ function switchPage(pageId) {
     page.classList.remove('active');
   });
   document.getElementById(pageId).classList.add('active');
-  
-  if (pageId === 'page-3') {
-    const music = document.getElementById('bgMusic');
-    if (music) {
-      music.play().then(() => {
-        document.getElementById('playText').textContent = 'Đang phát nhạc 🎵';
-        document.getElementById('playIcon').textContent = '⏸';
-      }).catch(() => {});
-    }
-  }
-  
   triggerCatRain();
 }
 
-function toggleAudio() {
+function toggleAudio(e) {
+  if (e) e.stopPropagation();
   const music = document.getElementById('bgMusic');
   const text = document.getElementById('playText');
   const icon = document.getElementById('playIcon');
 
   if (music.paused) {
-    music.play();
-    text.textContent = 'Tạm dừng nhạc ⏸';
-    icon.textContent = '⏸';
+    music.play().then(() => {
+      text.textContent = 'Đang phát nhạc nè 🎶 (Tạm dừng)';
+      icon.textContent = '⏸';
+    }).catch(err => {
+      alert('Hãy chạm vào màn hình rồi bấm lại lần nữa nha!');
+    });
   } else {
     music.pause();
-    text.textContent = 'Bật nhạc nghe nè 🎶';
+    text.textContent = 'Bấm vào đây để nghe nhạc nè 🎶';
     icon.textContent = '▶';
   }
 }
