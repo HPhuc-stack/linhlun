@@ -31,7 +31,7 @@ body {
   position: relative;
 }
 
-/* Các hoa văn trang trí nền */
+/* Decor họa tiết nền */
 .bg-deco {
   position: fixed;
   font-size: 30px;
@@ -175,6 +175,7 @@ body {
   white-space: pre-line;
 }
 
+/* Khung Phát Nhạc Chuẩn Bài love - wave to the earth */
 .music-card-audio {
   margin-top: 20px;
   background: linear-gradient(135deg, #eaf3ff 0%, #d8eafe 100%);
@@ -351,7 +352,7 @@ Thì :)))) chắc cũng giống cái sinh nhật m làm cho t á, nhưng mà l�
       <div class="letter-content">
 Thật thì t ko bt chúc gì nữa 🐧 chắc chúc m có cơ hội cao thêm vài cm hay là uhhhhhhhh ( khó quá bỏ qua ).
 
-Tính ra tới h t vs m chơi với nhau hơn nửa نصف r t chỉ thích m khóc với cười th 👀 nên t mong m luôn có nhiều niềm vui nè hay là kỷ niệm các thứ để lúc nào buồn nhớ lại cũng đc, lúc nào m cười nghe giọng m cũng khiến t dễ chịu hết trơn á nên là t thích nghe m cười nh hơn.
+Tính ra tới h t vs m chơi với nhau hơn nửa năm r t chỉ thích m khóc với cười th 👀 nên t mong m luôn có nhiều niềm vui nè hay là kỷ niệm các thứ để lúc nào buồn nhớ lại cũng đc, lúc nào m cười nghe giọng m cũng khiến t dễ chịu hết trơn á nên là t thích nghe m cười nh hơn.
 
 Mong bạn sẽ luôn xinh như hoa, đẹp, gặp nhiều may mắn và được yêu thương thật nhiều nha. Mong là dù có chuyện gì xảy ra thì m sẽ kể cho t nghe để ko có buồn phiền hay gì đó (m bt t nhiều chuyện mà 🐧💔)
       </div>
@@ -376,7 +377,7 @@ Mong là m thích nó, dù nó không phải món quà gì to tát. T chỉ mu�
 Hay là để có dịp t nấu canh cho m ăn, t bt là m thích lắm nhma cứ ngại nên ko sao đâu t nấu cho m mà đừng có lo 🍲💚
       </div>
 
-      <!-- Khung Nhạc Chuẩn Bản Gốc wave to the earth - love -->
+      <!-- Khung Nhạc Chuẩn Bài wave to the earth - love -->
       <div class="music-card-audio">
         <div class="music-title">🎵 wave to the earth - love 🎧</div>
         
@@ -384,9 +385,8 @@ Hay là để có dịp t nấu canh cho m ăn, t bt là m thích lắm nhma c�
           <span id="playIcon">▶</span> <span id="playText">Bấm vào đây để nghe nhạc nè 🎶</span>
         </button>
 
-        <!-- Link MP3 Chuẩn Bài wave to the earth - love -->
         <audio id="bgMusic" preload="auto">
-          <source src="https://files.catbox.moe/c8o8k6.mp3" type="audio/mpeg">
+          <source src="https://ia801503.us.archive.org/15/items/wave-to-the-earth-love/wave%20to%20the%20earth%20-%20love.mp3" type="audio/mpeg">
         </audio>
         
         <div class="video-note">t thấy m nghe cũng nhiều nên :))))</div>
@@ -439,7 +439,7 @@ function toggleAudio(e) {
 
   if (music.paused) {
     music.play().then(() => {
-      text.textContent = 'Đang phát nhạc nè 🎶 (Tạm dừng)';
+      text.textContent = 'Đang phát wave to the earth - love 🎵';
       icon.textContent = '⏸';
     }).catch(err => {
       alert('Hãy bấm lại lần nữa để phát nhạc nhé!');
