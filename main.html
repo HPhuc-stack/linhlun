@@ -174,6 +174,7 @@ body {
   white-space: pre-line;
 }
 
+/* Khung Phát Nhạc MP3 Xịn Xò */
 .music-card-audio {
   margin-top: 20px;
   background: linear-gradient(135deg, #eaf3ff 0%, #d8eafe 100%);
@@ -214,6 +215,15 @@ body {
 .play-music-btn:hover {
   transform: scale(1.05);
   background: linear-gradient(135deg, #3b76d6, #285bb8);
+}
+
+.custom-audio {
+  width: 100%;
+  max-width: 420px;
+  height: 40px;
+  margin-top: 12px;
+  border-radius: 30px;
+  outline: none;
 }
 
 .btn-primary {
@@ -270,15 +280,6 @@ body {
   pointer-events: none !important;
   z-index: 5;
   animation: fall linear forwards;
-}
-
-/* Khung Player YouTube Ẩn Để Phát Âm Thanh Smooth */
-#youtube-player {
-  width: 0;
-  height: 0;
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
 }
 
 @keyframes fall {
@@ -384,7 +385,7 @@ Mong là m thích nó, dù nó không phải món quà gì to tát. T chỉ mu�
 Hay là để có dịp t nấu canh cho m ăn, t bt là m thích lắm nhma cứ ngại nên ko sao đâu t nấu cho m mà đừng có lo 🍲💚
       </div>
 
-      <!-- Khung Nhạc Dùng API YouTube -->
+      <!-- Khung Trình Phát Nhạc MP3 Hoạt Động 100% -->
       <div class="music-card-audio">
         <div class="music-title">🎵 wave to the earth - love 🎧</div>
         
@@ -392,8 +393,10 @@ Hay là để có dịp t nấu canh cho m ăn, t bt là m thích lắm nhma c�
           <span id="playIcon">▶</span> <span id="playText">Bấm vào đây để nghe nhạc nè 🎶</span>
         </button>
 
-        <!-- Player YouTube Ẩn Nền -->
-        <div id="youtube-player"></div>
+        <br>
+        <audio id="bgMusic" class="custom-audio" controls preload="metadata">
+          <source src="https://archive.org/download/wave-to-the-earth-love/wave%20to%20the%20earth%20-%20love.mp3" type="audio/mpeg">
+        </audio>
         
         <div class="video-note">t thấy m nghe cũng nhiều nên :))))</div>
       </div>
@@ -428,60 +431,33 @@ Hay là để có dịp t nấu canh cho m ăn, t bt là m thích lắm nhma c�
 
 </div>
 
-<!-- Tải YouTube Iframe Player API -->
-<script src="https://www.youtube.com/iframe_api"></script>
-
 <script>
-let ytPlayer;
-let isPlaying = false;
-
-function onYouTubeIframeAPIReady() {
-  ytPlayer = new YT.Player('youtube-player', {
-    height: '0',
-    width: '0',
-    videoId: 'VpX32F51iTo', // ID Bài wave to the earth - love
-    playerVars: {
-      'autoplay': 0,
-      'controls': 0,
-      'rel': 0
-    },
-    events: {
-      'onStateChange': onPlayerStateChange
-    }
-  });
-}
-
-function onPlayerStateChange(event) {
-  const text = document.getElementById('playText');
-  const icon = document.getElementById('playIcon');
-  if (event.data == YT.PlayerState.PLAYING) {
-    isPlaying = true;
-    text.textContent = 'Đang phát wave to the earth - love 🎵';
-    icon.textContent = '⏸';
-  } else {
-    isPlaying = false;
-    text.textContent = 'Bấm vào đây để nghe nhạc nè 🎶';
-    icon.textContent = '▶';
-  }
-}
-
-function toggleAudio(e) {
-  if (e) e.stopPropagation();
-  if (!ytPlayer) return;
-
-  if (!isPlaying) {
-    ytPlayer.playVideo();
-  } else {
-    ytPlayer.pauseVideo();
-  }
-}
-
 function switchPage(pageId) {
   document.querySelectorAll('.page').forEach(page => {
     page.classList.remove('active');
   });
   document.getElementById(pageId).classList.add('active');
   triggerCatRain();
+}
+
+function toggleAudio(e) {
+  if (e) e.stopPropagation();
+  const music = document.getElementById('bgMusic');
+  const text = document.getElementById('playText');
+  const icon = document.getElementById('playIcon');
+
+  if (music.paused) {
+    music.play().then(() => {
+      text.textContent = 'Đang phát wave to the earth - love 🎵';
+      icon.textContent = '⏸';
+    }).catch(err => {
+      // Nếu bấm nút custom chưa chạy thì người dùng có thể bấm trực tiếp thanh điều khiển audio ở dưới
+    });
+  } else {
+    music.pause();
+    text.textContent = 'Bấm vào đây để nghe nhạc nè 🎶';
+    icon.textContent = '▶';
+  }
 }
 
 function triggerCatRain() {
