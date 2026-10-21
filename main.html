@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cho m nè Linh lùn 🩵🐱</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@500;600;700&display=swap');
+
+:root {
+  --blue-main: #5b92e5;
+  --blue-soft: #eaf3ff;
+  --pink-accent: #ff6b81;
+  --pink-light: #fff0f2;
+  --text-dark: #2c3e50;
+  --white: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Nunito', 'Quicksand', sans-serif;
+  background: linear-gradient(135deg, #e3effd 0%, #fdeef1 50%, #d8e9fe 100%);
+  color: var(--text-dark);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.browser-container {
+  width: min(880px, 94vw);
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(91, 146, 229, 0.2);
+  border: 2px solid #ffffff;
+  overflow: hidden;
+  position: relative;
+  margin: 20px 0;
+}
+
+.browser-bar {
+  background: #f1f6fc;
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #e1ebf7;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.dot-red { background: #ff6b6b; }
+.dot-yellow { background: #fabca1; }
+.dot-green { background: #5cdb95; }
+
+.browser-title {
+  margin-left: 12px;
+  font-size: 13px;
+  color: #7a8fa6;
+  font-weight: 600;
+}
+
+.screen {
+  padding: 40px 30px;
+  min-height: 540px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+#intro-screen {
+  background: radial-gradient(circle at center, #ffffff 0%, #f3f8fe 100%);
+}
+
+.intro-card {
+  background: #ffffff;
+  border: 2px solid #e1effe;
+  border-radius: 28px;
+  padding: 35px 30px;
+  max-width: 480px;
+  width: 100%;
+  box-shadow: 0 12px 30px rgba(255, 107, 129, 0.08);
+  position: relative;
+}
+
+.deco-icon {
+  font-size: 26px;
+  margin: 0 6px;
+}
+
+.badge-tag {
+  display: inline-block;
+  background: var(--blue-soft);
+  color: var(--blue-main);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.intro-card h1 {
+  font-size: 32px;
+  color: var(--blue-main);
+  margin: 10px 0 15px;
+  font-weight: 800;
+}
+
+.intro-card p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #556b82;
+  margin: 10px 0;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--blue-main), #4a7dcc);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(91, 146, 229, 0.35);
+  transition: all 0.2s ease;
+  margin-top: 15px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(91, 146, 229, 0.45);
+}
+
+.sub-note {
+  font-size: 12px;
+  color: #a0b2c6;
+  margin-top: 10px;
+}
+
+#main-screen {
+  display: none;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 30px;
+  align-items: center;
+  width: 100%;
+  max-width: 780px;
+}
+
+.flower-box {
+  background: linear-gradient(135deg, #ffffff, #fdf0f2);
+  border-radius: 50%;
+  width: 260px;
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  border: 3px solid #ffffff;
+  box-shadow: 0 10px 30px rgba(255, 107, 129, 0.15);
+  position: relative;
+}
+
+.flower-box .flower-emoji {
+  font-size: 90px;
+  filter: drop-shadow(0 8px 12px rgba(0,0,0,0.1));
+}
+
+.flower-box span {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--pink-accent);
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.content-box {
+  text-align: left;
+}
+
+.content-box h2 {
+  font-size: 42px;
+  line-height: 1.2;
+  color: var(--blue-main);
+  margin: 0 0 15px;
+  font-weight: 800;
+}
+
+.content-box h2 span {
+  color: var(--pink-accent);
+  font-style: italic;
+}
+
+.content-box p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #4a5d73;
+}
+
+.button-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+
+.btn-secondary {
+  background: var(--pink-light);
+  color: var(--pink-accent);
+  border: 1.5px solid #ffccd3;
+  padding: 12px 22px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--pink-accent);
+  color: white;
+}
+
+/* Modal Popup Slide Lời Nhắn */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(44, 62, 80, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 30px 25px;
+  max-width: 520px;
+  width: 100%;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  text-align: center;
+  position: relative;
+  border: 3px solid var(--blue-soft);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.slide { display: none; }
+.slide.active { display: block; animation: fadeIn 0.3s ease; }
+
+.slide h3 {
+  color: var(--pink-accent);
+  font-size: 24px;
+  margin-top: 0;
+}
+
+.slide p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #4a5d73;
+  white-space: pre-line;
+}
+
+/* Khung Video Nhạc YouTube */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* Tỷ lệ 16:9 chuẩn */
+  height: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  margin-top: 15px;
+  box-shadow: 0 8px 20px rgba(91, 146, 229, 0.2);
+  border: 2px solid var(--blue-soft);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-note {
+  font-size: 13px;
+  color: #889bb0;
+  margin-top: 10px;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.slide-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.slide-dots {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--blue-main);
+}
+
+.drop-item {
+  position: fixed;
+  top: -40px;
+  font-size: 28px;
+  pointer-events: none;
+  z-index: 999;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(105vh) rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 650px) {
+  .hero-grid { grid-template-columns: 1fr; text-align: center; }
+  .content-box { text-align: center; }
+  .button-group { justify-content: center; }
+  .content-box h2 { font-size: 32px; }
+}
+</style>
+</head>
+<body>
+
+<div class="browser-container">
+  <div class="browser-bar">
+    <span class="dot dot-red"></span>
+    <span class="dot dot-yellow"></span>
+    <span class="dot dot-green"></span>
+    <span class="browser-title">Cho m nè Linh lùn 🩵🐱</span>
+  </div>
+
+  <section class="screen" id="intro-screen">
+    <div class="intro-card">
+      <div>
+        <span class="deco-icon">🐱</span>
+        <span class="deco-icon" style="color:var(--blue-main);">💙</span>
+        <span class="deco-icon">🪻</span>
+      </div>
+      
+      <span class="badge-tag">Ê LINH LÙN ƠIII</span>
+      <h1>Nay là ngày lễ á :))))</h1>
+      
+      <p>Nên là... t có cái này muốn tặng m nè.<br>Đừng chê nha, t làm cũng có tâm lắm đó 💔</p>
+      <p style="font-size: 14px; color: var(--pink-accent); font-weight: 600;">Có cả mèo với hoa lily xanh cho m nữa nè 🐱🪻</p>
+      
+      <button class="btn-primary" onclick="goToMain()">Rồi rồi, mở coi ♡</button>
+      <div class="sub-note">mở ra đi màaa :></div>
+    </div>
+  </section>
+
+  <section class="screen" id="main-screen">
+    <div class="hero-grid">
+      <div class="flower-box">
+        <div class="flower-emoji">🌷</div>
+        <span>FOR YOU, GENTLY</span>
+        <div style="font-size: 20px; margin-top: 5px;">🐱 🪻</div>
+      </div>
+
+      <div class="content-box">
+        <span style="font-size:12px; font-weight:800; color:var(--blue-main); letter-spacing:1px;">CHO M NÈ LINH LÙN</span>
+        <h2>Ê m,<br><span>20/10 vui vẻ</span> nha.</h2>
+        <p>Chúc m lúc nào cũng vui, ít suy nghĩ linh tinh, ăn ngon ngủ ngon và gặp toàn chuyện tốt. Hôm nay cứ vui vẻ tận hưởng đi nhé 💙</p>
+
+        <div class="button-group">
+          <button class="btn-primary" onclick="openMessages()">Đọc lời nhắn của t</button>
+          <button class="btn-secondary" onclick="triggerCatRain()">Ấn thử đi ♡</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Modal Xem Lời Nhắn -->
+<div class="modal" id="msgModal">
+  <div class="modal-content">
+    <!-- Slide 1 -->
+    <div class="slide active" id="slide1">
+      <h3>Gửi m một chút ấm áp 🪻</h3>
+      <p>Chúc m 20/10 thật nhiều niềm vui nhaaa! 
+Mong m lúc nào cũng khỏe mạnh, bớt suy nghĩ linh tinh lại, làm được những điều m thích và luôn có những người thật lòng thương m ở bên cạnh.
+
+Dù có gặp chuyện gì thì cũng đừng quên chăm sóc bản thân thật tốt nha 🐱💙</p>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide" id="slide2">
+      <h3>Mong m luôn bình yên 🌸</h3>
+      <p>T mong m sẽ có thật nhiều ngày nhẹ lòng, sáng thức dậy thấy vui vẻ và tối đi ngủ không phải nghĩ ngợi nhiều.
+
+M xứng đáng được yêu thương và vui vẻ theo cách của riêng m. Chúc Linh lùn một ngày 20/10 thật dễ thương! ✨💖</p>
+    </div>
+
+    <!-- Slide 3 (Có nhúng Video bài Love - wave to the earth) -->
+    <div class="slide" id="slide3">
+      <h3>Lời nhắn cuối ♡</h3>
+      <p>Xin lỗi nha t ko thể nói mấy lời hoa mỹ làm cho m cảm thấy vui được nhma t đã cố mong m đừng chêooo 😓</p>
+      
+      <!-- Nhúng video YouTube -->
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/NfR4pSAnvU4" title="wave to the earth - love" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-note">t thấy m nghe cũng nhiều nên :))))</div>
+    </div>
+
+    <!-- Thanh Điều Hướng Slide -->
+    <div class="slide-nav">
+      <button class="btn-secondary" id="btnPrev" onclick="changeSlide(-1)" style="visibility:hidden;">‹ Trước</button>
+      <span class="slide-dots" id="slideIndicator">1 / 3</span>
+      <button class="btn-primary" id="btnNext" onclick="changeSlide(1)" style="padding: 10px 20px; font-size:14px;">Tiếp ›</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function goToMain() {
+  document.getElementById('intro-screen').style.display = 'none';
+  document.getElementById('main-screen').style.display = 'flex';
+}
+
+let currentSlide = 1;
+const totalSlides = 3;
+
+function openMessages() {
+  document.getElementById('msgModal').classList.add('active');
+  triggerCatRain();
+}
+
+function changeSlide(direction) {
+  currentSlide += direction;
+  
+  if (currentSlide > totalSlides) {
+    document.getElementById('msgModal').classList.remove('active');
+    currentSlide = 1;
+  }
+  
+  updateSlideView();
+}
+
+function updateSlideView() {
+  document.querySelectorAll('.slide').forEach((s, index) => {
+    s.classList.toggle('active', index === (currentSlide - 1));
+  });
+
+  document.getElementById('slideIndicator').textContent = currentSlide + ' / ' + totalSlides;
+  document.getElementById('btnPrev').style.visibility = (currentSlide === 1) ? 'hidden' : 'visible';
+  document.getElementById('btnNext').textContent = (currentSlide === totalSlides) ? 'Đóng ♡' : 'Tiếp ›';
+}
+
+function triggerCatRain() {
+  const icons = ['🐱', '💖', '🪻', '🐾', '🌷', '✨', '💙'];
+  for (let i = 0; i < 20; i++) {
+    setTimeout(() => {
+      const item = document.createElement('div');
+      item.className = 'drop-item';
+      item.textContent = icons[Math.floor(Math.random() * icons.length)];
+      item.style.left = Math.random() * 95 + 'vw';
+      item.style.animationDuration = (Math.random() * 2 + 2) + 's';
+      document.body.appendChild(item);
+
+      setTimeout(() => item.remove(), 4000);
+    }, i * 120);
+  }
+}
+</script>
+
+</body>
+</html>
