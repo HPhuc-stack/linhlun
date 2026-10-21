@@ -8,11 +8,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@400;600;700;800&family=Quicksand:wght@500;600;700&display=swap');
 
 :root {
-  --blue-main: #4a80d6;
-  --blue-soft: #e3effd;
-  --blue-card: rgba(255, 255, 255, 0.88);
-  --pink-accent: #ff6b81;
-  --text-dark: #2c3e50;
+  --blue-main: #3b71ca;
+  --blue-soft: #d2e4f9;
+  --blue-accent: #629bf0;
+  --text-dark: #203856;
   --white: #ffffff;
 }
 
@@ -22,8 +21,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Nunito', 'Quicksand', sans-serif;
-  /* Background phong cách mây xanh pastel & họa tiết hoa lãng mạn */
-  background: linear-gradient(135deg, #cde0f7 0%, #e8f2fc 40%, #dbe9f9 100%);
+  /* Background tổng quát mây trời xanh dịu pastel */
+  background: radial-gradient(circle at 50% 30%, #eef5fc 0%, #cbe0f8 60%, #b5d3f5 100%);
   color: var(--text-dark);
   min-height: 100vh;
   display: flex;
@@ -33,18 +32,18 @@ body {
   position: relative;
 }
 
-/* Các hoa văn trang trí nền (Mèo, Hoa Lily xanh, Nơ Ruy-băng, Bướm, Mây) */
+/* Decor các hoa văn bay lơ lửng xung quanh (Nơ, Lily xanh, Bướm, Mèo, Mây) */
 .bg-deco {
   position: fixed;
-  font-size: 32px;
+  font-size: 30px;
   opacity: 0.85;
   pointer-events: none;
   z-index: 1;
   animation: float 4s ease-in-out infinite alternate;
-  filter: drop-shadow(0 4px 8px rgba(91, 146, 229, 0.15));
+  filter: drop-shadow(0 4px 10px rgba(74, 128, 214, 0.25));
 }
 .deco-1 { top: 6%; left: 5%; animation-delay: 0s; }
-.deco-2 { top: 10%; right: 6%; animation-delay: 1s; }
+.deco-2 { top: 8%; right: 6%; animation-delay: 1s; }
 .deco-3 { bottom: 8%; left: 6%; animation-delay: 2s; }
 .deco-4 { bottom: 10%; right: 5%; animation-delay: 1.5s; }
 .deco-5 { top: 45%; left: 2%; animation-delay: 0.5s; }
@@ -55,27 +54,28 @@ body {
   100% { transform: translateY(-12px) rotate(8deg); }
 }
 
-/* Khung cửa sổ Trình duyệt Browser Glassmorphism */
+/* Khung trình duyệt mang phong cách Nền Xanh Blue Lily & Mây Pastel */
 .browser-container {
   width: min(880px, 94vw);
-  background: var(--blue-card);
-  backdrop-filter: blur(10px);
+  background: linear-gradient(135deg, rgba(235, 244, 255, 0.95) 0%, rgba(210, 230, 255, 0.92) 100%);
+  backdrop-filter: blur(12px);
   border-radius: 28px;
-  box-shadow: 0 20px 50px rgba(74, 128, 214, 0.22);
-  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 20px 50px rgba(59, 113, 202, 0.25);
+  border: 3px solid rgba(255, 255, 255, 0.95);
   overflow: hidden;
   position: relative;
   margin: 20px 0;
   z-index: 10;
 }
 
+/* Thanh địa chỉ duyệt web màu xanh mây */
 .browser-bar {
-  background: rgba(230, 241, 255, 0.9);
+  background: linear-gradient(90deg, #d8e8fb 0%, #eaf3fd 100%);
   padding: 12px 20px;
   display: flex;
   align-items: center;
   gap: 8px;
-  border-bottom: 1px solid #d5e5f7;
+  border-bottom: 2px solid #c2dbf7;
 }
 
 .dot { width: 10px; height: 10px; border-radius: 50%; }
@@ -86,32 +86,45 @@ body {
 .browser-title {
   margin-left: 12px;
   font-size: 13px;
-  color: #617d9c;
-  font-weight: 600;
+  color: #4b6f96;
+  font-weight: 700;
 }
 
 .page {
   padding: 40px 35px;
-  min-height: 550px;
+  min-height: 560px;
   display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   animation: fadeIn 0.4s ease-in-out;
+  /* Hoa văn mây & hoa lily nhẹ chìm trong nền khung */
+  background-image: radial-gradient(rgba(255, 255, 255, 0.6) 2px, transparent 2px);
+  background-size: 24px 24px;
 }
 
 .page.active { display: flex; }
 
+/* Khung Intro Thiệp Nền Xanh Pastel */
 .intro-card {
-  background: rgba(255, 255, 255, 0.95);
-  border: 2px solid #d0e3f9;
+  background: linear-gradient(145deg, #ffffff 0%, #f0f6ff 100%);
+  border: 2px solid #b8d7f9;
   border-radius: 28px;
-  padding: 35px 30px;
+  padding: 38px 32px;
   max-width: 520px;
   width: 100%;
-  box-shadow: 0 12px 30px rgba(74, 128, 214, 0.1);
+  box-shadow: 0 14px 35px rgba(59, 113, 202, 0.15);
   position: relative;
+}
+
+.intro-card::after {
+  content: '🎀';
+  position: absolute;
+  top: -15px;
+  right: -10px;
+  font-size: 28px;
+  transform: rotate(15deg);
 }
 
 .intro-card h1 {
@@ -124,31 +137,44 @@ body {
 .intro-card p {
   font-size: 16px;
   line-height: 1.7;
-  color: #4a637d;
+  color: #3e5a7c;
   margin: 10px 0;
 }
 
+/* Thư Nhắn Giấy Thiệp Nền Mây Xanh Xinh Xắn */
 .letter-box {
-  background: rgba(255, 255, 255, 0.96);
-  border-radius: 24px;
-  border: 2px solid #d0e3f9;
-  padding: 35px 30px;
+  background: linear-gradient(160deg, #ffffff 0%, #f4f8fe 100%);
+  border-radius: 26px;
+  border: 2px solid #bce0fd;
+  padding: 35px 32px;
   max-width: 650px;
   width: 100%;
-  box-shadow: 0 15px 35px rgba(74, 128, 214, 0.12);
+  box-shadow: 0 16px 38px rgba(59, 113, 202, 0.16);
   text-align: left;
   position: relative;
 }
 
-/* Trang Kết Bìa Thiệp Phong Cách Blue Floral Ribbon */
+.letter-box::before {
+  content: '🪻 🦋';
+  position: absolute;
+  top: -16px;
+  right: 25px;
+  background: #ffffff;
+  padding: 2px 12px;
+  border-radius: 15px;
+  border: 1px solid #bce0fd;
+  font-size: 14px;
+}
+
+/* Trang Kết Bìa Thiệp Thiệt Kế Tông Blue Floral Ribbon */
 .card-end-box {
-  background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #eaf3ff 100%);
   border-radius: 28px;
-  border: 2px solid #bce0fd;
-  padding: 40px 30px;
+  border: 2px double #a3cbf7;
+  padding: 40px 32px;
   max-width: 600px;
   width: 100%;
-  box-shadow: 0 18px 40px rgba(74, 128, 214, 0.15);
+  box-shadow: 0 18px 40px rgba(59, 113, 202, 0.18);
   text-align: center;
   position: relative;
 }
@@ -162,7 +188,7 @@ body {
   background: #ffffff;
   padding: 2px 18px;
   border-radius: 20px;
-  border: 1px solid #bce0fd;
+  border: 1.5px solid #a3cbf7;
   font-size: 16px;
 }
 
@@ -171,7 +197,7 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-  border-bottom: 2px dashed #d5e5f7;
+  border-bottom: 2px dashed #cbe0f8;
   padding-bottom: 12px;
 }
 
@@ -184,8 +210,8 @@ body {
 
 .letter-content {
   font-size: 15px;
-  line-height: 1.8;
-  color: #3b526b;
+  line-height: 1.85;
+  color: #344e6d;
   white-space: pre-line;
 }
 
@@ -194,11 +220,12 @@ body {
   font-size: 24px;
 }
 
+/* Khung Nghe Nhạc Phong Cách Blue Player */
 .music-card {
-  background: #f0f7ff;
-  border: 2px dashed #a8cdfc;
-  border-radius: 16px;
-  padding: 16px;
+  background: linear-gradient(135deg, #eaf3ff 0%, #d8eafe 100%);
+  border: 2px dashed #9bc3f5;
+  border-radius: 18px;
+  padding: 18px;
   margin-top: 20px;
   text-align: center;
 }
@@ -207,20 +234,21 @@ body {
   margin: 0 0 10px 0;
   font-size: 14px;
   color: var(--blue-main);
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .video-note {
   font-size: 13px;
-  color: #7997b8;
+  color: #6a8bb1;
   margin-top: 8px;
   font-style: italic;
   font-weight: 600;
   text-align: center;
 }
 
+/* Nút Bấm Tông Xanh Blue Ribbon */
 .btn-primary {
-  background: linear-gradient(135deg, var(--blue-main), #3a6ec0);
+  background: linear-gradient(135deg, #4a84e3, #336bc7);
   color: white;
   border: none;
   padding: 13px 30px;
@@ -228,7 +256,7 @@ body {
   font-size: 15px;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(74, 128, 214, 0.35);
+  box-shadow: 0 8px 22px rgba(59, 113, 202, 0.38);
   transition: all 0.2s ease;
   text-decoration: none;
   display: inline-block;
@@ -236,13 +264,13 @@ body {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(74, 128, 214, 0.45);
+  box-shadow: 0 10px 25px rgba(59, 113, 202, 0.48);
 }
 
 .btn-secondary {
   background: #eaf3ff;
   color: var(--blue-main);
-  border: 1.5px solid #bce0fd;
+  border: 1.5px solid #a8d0fb;
   padding: 12px 24px;
   border-radius: 50px;
   font-size: 14px;
@@ -265,6 +293,7 @@ body {
   margin-top: 25px;
 }
 
+/* Hiệu ứng thả Mèo / Hoa / Bướm / Nơ */
 .drop-item {
   position: fixed;
   top: -40px;
@@ -292,7 +321,7 @@ body {
 </head>
 <body>
 
-<!-- Nền Họa Tiết Soft Blue Lily & Bows -->
+<!-- Nền Họa Tiết Soft Blue Lily & Bows Bay Xung Quanh -->
 <div class="bg-deco deco-1">🎀 🪻</div>
 <div class="bg-deco deco-2">🦋 🐈‍⬛</div>
 <div class="bg-deco deco-3">☁️ 🤍</div>
@@ -319,7 +348,7 @@ body {
       <p>T làm cái trang web xinh xinh này tặng m nè.<br>đánh răng ch đó ? 🐧</p>
 
       <button class="btn-primary" onclick="switchPage('page-1')" style="margin-top:15px;">Đọc thư t viết nè 💌</button>
-      <div style="font-size:12px; color:#859eb8; margin-top:12px;">Mở ra đọc đi màaa :></div>
+      <div style="font-size:12px; color:#6a8bb1; margin-top:12px;">Mở ra đọc đi màaa :></div>
     </div>
   </section>
 
@@ -397,11 +426,11 @@ Hay là để có dịp t nấu canh cho m ăn, t bt là m thích lắm nhma c�
       <div style="font-size:36px; margin-bottom:10px;">🎀 🪻 🐱 🐈‍⬛ 🦋</div>
       <h3 style="color: var(--blue-main); font-size:24px; margin-top:0; font-weight:800;">Lời kết cho Linh lùn ♡</h3>
       
-      <p style="font-size:16px; line-height:1.8; color:#3b526b; margin:20px 0; font-weight:600;">
+      <p style="font-size:16px; line-height:1.85; color:#344e6d; margin:20px 0; font-weight:600;">
         "Xin lỗi t ko bt nói lời hoa mỹ cho lắm nên ko làm m vui các thứ đc nhma t đã cố r 😓 nên mong là đừng eoooooooo eoooooooo eooooooooo :))))"
       </p>
 
-      <div style="font-size:13px; color:#7997b8; font-style:italic; margin-top:25px; font-weight:700;">
+      <div style="font-size:13px; color:#6a8bb1; font-style:italic; margin-top:25px; font-weight:700;">
         m vui là t thành công r 👀
       </div>
 
