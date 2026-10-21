@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cho m nè Linh lùn 🩵🐱🪻</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@500;600;700&display=swap');
+
+:root {
+  --blue-main: #5b92e5;
+  --blue-soft: #eaf3ff;
+  --pink-accent: #ff6b81;
+  --pink-light: #fff0f2;
+  --text-dark: #2c3e50;
+  --white: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Nunito', 'Quicksand', sans-serif;
+  background: linear-gradient(135deg, #e3effd 0%, #fdeef1 50%, #d8e9fe 100%);
+  color: var(--text-dark);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Các hoa văn trang trí nền (Mèo, Hoa, Bướm) */
+.bg-deco {
+  position: fixed;
+  font-size: 32px;
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: 1;
+  animation: float 4s ease-in-out infinite alternate;
+}
+.deco-1 { top: 8%; left: 6%; animation-delay: 0s; }
+.deco-2 { top: 12%; right: 8%; animation-delay: 1s; }
+.deco-3 { bottom: 10%; left: 8%; animation-delay: 2s; }
+.deco-4 { bottom: 12%; right: 6%; animation-delay: 1.5s; }
+.deco-5 { top: 48%; left: 3%; animation-delay: 0.5s; }
+.deco-6 { top: 52%; right: 3%; animation-delay: 2.5s; }
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-15px) rotate(10deg); }
+}
+
+.browser-container {
+  width: min(880px, 94vw);
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: 28px;
+  box-shadow: 0 20px 50px rgba(91, 146, 229, 0.2);
+  border: 2px solid #ffffff;
+  overflow: hidden;
+  position: relative;
+  margin: 20px 0;
+  z-index: 10;
+}
+
+.browser-bar {
+  background: #f1f6fc;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #e1ebf7;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.dot-red { background: #ff6b6b; }
+.dot-yellow { background: #fabca1; }
+.dot-green { background: #5cdb95; }
+
+.browser-title {
+  margin-left: 12px;
+  font-size: 13px;
+  color: #7a8fa6;
+  font-weight: 600;
+}
+
+.page {
+  padding: 40px 35px;
+  min-height: 550px;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.page.active {
+  display: flex;
+}
+
+/* Trang Intro */
+.intro-card {
+  background: #ffffff;
+  border: 2px solid #e1effe;
+  border-radius: 28px;
+  padding: 35px 30px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 12px 30px rgba(255, 107, 129, 0.08);
+}
+
+.intro-card h1 {
+  font-size: 32px;
+  color: var(--blue-main);
+  margin: 10px 0 15px;
+  font-weight: 800;
+}
+
+.intro-card p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #556b82;
+  margin: 10px 0;
+}
+
+/* Trang Lời Nhắn */
+.letter-box {
+  background: #ffffff;
+  border-radius: 24px;
+  border: 2px solid var(--blue-soft);
+  padding: 35px 30px;
+  max-width: 650px;
+  width: 100%;
+  box-shadow: 0 15px 35px rgba(91, 146, 229, 0.1);
+  text-align: left;
+  position: relative;
+}
+
+.letter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 2px dashed #e3effd;
+  padding-bottom: 12px;
+}
+
+.letter-header h3 {
+  margin: 0;
+  color: var(--pink-accent);
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.letter-content {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #4a5d73;
+  white-space: pre-line;
+}
+
+.deco-icons-row {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+/* Khung Nhạc YouTube */
+.music-card {
+  background: #f8fbff;
+  border: 2px dashed #b5d1f7;
+  border-radius: 16px;
+  padding: 16px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.music-card p {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  color: var(--blue-main);
+  font-weight: 700;
+}
+
+.video-note {
+  font-size: 13px;
+  color: #889bb0;
+  margin-top: 8px;
+  font-style: italic;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Nút Bấm */
+.btn-primary {
+  background: linear-gradient(135deg, var(--blue-main), #4a7dcc);
+  color: white;
+  border: none;
+  padding: 13px 30px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(91, 146, 229, 0.35);
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(91, 146, 229, 0.45);
+}
+
+.btn-secondary {
+  background: var(--pink-light);
+  color: var(--pink-accent);
+  border: 1.5px solid #ffccd3;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-secondary:hover {
+  background: var(--pink-accent);
+  color: white;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 25px;
+}
+
+/* Hiệu ứng Rơi */
+.drop-item {
+  position: fixed;
+  top: -40px;
+  font-size: 28px;
+  pointer-events: none;
+  z-index: 999;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to { transform: translateY(105vh) rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 650px) {
+  .page { padding: 30px 20px; }
+  .letter-box { padding: 25px 20px; }
+  .letter-header h3 { font-size: 18px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Các Icon Trang Trí Xung Quanh Nền -->
+<div class="bg-deco deco-1">🐱 🪻</div>
+<div class="bg-deco deco-2">🦋 🐈‍⬛</div>
+<div class="bg-deco deco-3">🌸 🤍</div>
+<div class="bg-deco deco-4">🌷 🦋</div>
+<div class="bg-deco deco-5">🪻 🐈</div>
+<div class="bg-deco deco-6">🦋 🐱</div>
+
+<div class="browser-container">
+  <div class="browser-bar">
+    <span class="dot dot-red"></span>
+    <span class="dot dot-yellow"></span>
+    <span class="dot dot-green"></span>
+    <span class="browser-title">Cho m nè Linh lùn 🩵🐱🪻</span>
+  </div>
+
+  <!-- TRANG LỜI CHÀO (INTRO) -->
+  <section class="page active" id="page-intro">
+    <div class="intro-card">
+      <div class="deco-icons-row">
+        🐱 🪻 🦋 🐈‍⬛ 🌸 🤍
+      </div>
+      <span style="background:var(--blue-soft); color:var(--blue-main); padding:6px 16px; border-radius:20px; font-size:13px; font-weight:700;">Ê LINH LÙN ƠIII</span>
+      <h1>Nay 20/10 á :))))</h1>
+      <p>T làm cái trang web xinh xinh này tặng m nè.<br>Có hoa lily xanh, hoa tươi, bướm với mấy bé mèo m thích đó 🐱🪻🦋</p>
+
+      <button class="btn-primary" onclick="switchPage('page-1')" style="margin-top:15px;">Đọc thư t viết nè 💌</button>
+      <div style="font-size:12px; color:#a0b2c6; margin-top:12px;">Mở ra đọc đi màaa :></div>
+    </div>
+  </section>
+
+  <!-- TRANG LỜI NHẮN 1/3 -->
+  <section class="page" id="page-1">
+    <div class="letter-box">
+      <div class="letter-header">
+        <h3>Gửi Linh lùn 🪻 (Trang 1/3)</h3>
+        <div>🐱 🦋</div>
+      </div>
+      <div class="letter-content">
+Nay 20/10, Ngày Phụ nữ Việt Nam á :)))) T cũng không biết làm gì nhiều để tặng m nên t làm cái này cho m đọc chơi chơi thui.
+
+Thì :)))) chắc cũng giống cái sinh nhật m làm cho t á, nhưng mà lần này là t chúc cho m ykyk 😏
+      </div>
+      
+      <div class="nav-buttons">
+        <button class="btn-secondary" onclick="switchPage('page-intro')">‹ Quay lại Intro</button>
+        <button class="btn-primary" onclick="switchPage('page-2')">Trang tiếp ›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANG LỜI NHẮN 2/3 -->
+  <section class="page" id="page-2">
+    <div class="letter-box">
+      <div class="letter-header">
+        <h3>Lời chúc chân thành 🌸 (Trang 2/3)</h3>
+        <div>🐈‍⬛ 🌷</div>
+      </div>
+      <div class="letter-content">
+Thật thì t ko bt chúc gì nữa 🐧 chắc chúc m có cơ hội cao thêm vài cm hay là uhhhhhhhh ( khó quá bỏ qua ).
+
+Tính ra tới h t vs m chơi với nhau hơn nửa năm r t chỉ thích m khóc với cười th 👀 nên t mong m luôn có nhiều niềm vui nè hay là kỷ niệm các thứ để lúc nào buồn nhớ lại cũng đc, lúc nào m cười nghe giọng m cũng khiến t dễ chịu hết trơn á nên là t thích nghe m cười nh hơn.
+
+Mong bạn sẽ luôn xinh như hoa, đẹp, gặp nhiều may mắn và được yêu thương thật nhiều nha. Mong là dù có chuyện gì xảy ra thì m sẽ kể cho t nghe để ko có buồn phiền hay gì đó (m bt t nhiều chuyện mà 🐧💔)
+      </div>
+
+      <div class="nav-buttons">
+        <button class="btn-secondary" onclick="switchPage('page-1')">‹ Trước</button>
+        <button class="btn-primary" onclick="switchPage('page-3')">Trang tiếp ›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANG LỜI NHẮN 3/3 (TRANG CUỐI) -->
+  <section class="page" id="page-3">
+    <div class="letter-box">
+      <div class="letter-header">
+        <h3>Gửi m một chút ấm áp ♡ (Trang 3/3)</h3>
+        <div>🐱 🪻 🦋</div>
+      </div>
+      <div class="letter-content">
+Mong là m thích nó, dù nó không phải món quà gì to tát. T chỉ muốn nhân dịp này làm một cái gì đó riêng cho m th, kiểu ít nhất thì làm cái gì đó giet tg của m chẵ hạn nên t làm cái này dài dài cho m đọc đi đọc lại chơi chơi v đó :))))
+
+Hay là để có dịp t nấu canh cho m ăn, t bt là m thích lắm nhma cứ ngại nên ko sao đâu t nấu cho m mà đừng có lo 🍲💚
+      </div>
+
+      <!-- Khung Nhạc YouTube -->
+      <div class="music-card">
+        <p>🎵 wave to the earth - love (Official Audio)</p>
+        <a href="https://www.youtube.com/watch?v=NfR4pSAnvU4" target="_blank" class="btn-primary" style="padding: 10px 24px; font-size:14px;">Bấm vào đây để nghe nhạc nha 🎧</a>
+        <div class="video-note">t thấy m nghe cũng nhiều nên :))))</div>
+      </div>
+
+      <div class="nav-buttons">
+        <button class="btn-secondary" onclick="switchPage('page-2')">‹ Trước</button>
+        <button class="btn-primary" onclick="triggerCatRain()">Thả mèo & hoa ✨</button>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+function switchPage(pageId) {
+  document.querySelectorAll('.page').forEach(page => {
+    page.classList.remove('active');
+  });
+  document.getElementById(pageId).classList.add('active');
+  triggerCatRain();
+}
+
+function triggerCatRain() {
+  const icons = ['🐱', '🐈‍⬛', '🪻', '🌸', '🌷', '🦋', '💖', '✨', '🤍'];
+  for (let i = 0; i < 20; i++) {
+    setTimeout(() => {
+      const item = document.createElement('div');
+      item.className = 'drop-item';
+      item.textContent = icons[Math.floor(Math.random() * icons.length)];
+      item.style.left = Math.random() * 95 + 'vw';
+      item.style.animationDuration = (Math.random() * 2 + 2) + 's';
+      document.body.appendChild(item);
+
+      setTimeout(() => item.remove(), 4000);
+    }, i * 120);
+  }
+}
+</script>
+
+</body>
+</html>
