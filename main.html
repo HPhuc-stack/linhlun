@@ -21,7 +21,6 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Nunito', 'Quicksand', sans-serif;
-  /* Background tổng quát mây trời xanh dịu pastel */
   background: radial-gradient(circle at 50% 30%, #eef5fc 0%, #cbe0f8 60%, #b5d3f5 100%);
   color: var(--text-dark);
   min-height: 100vh;
@@ -32,7 +31,6 @@ body {
   position: relative;
 }
 
-/* Decor các hoa văn bay lơ lửng xung quanh (Nơ, Lily xanh, Bướm, Mèo, Mây) */
 .bg-deco {
   position: fixed;
   font-size: 30px;
@@ -54,7 +52,6 @@ body {
   100% { transform: translateY(-12px) rotate(8deg); }
 }
 
-/* Khung trình duyệt mang phong cách Nền Xanh Blue Lily & Mây Pastel */
 .browser-container {
   width: min(880px, 94vw);
   background: linear-gradient(135deg, rgba(235, 244, 255, 0.95) 0%, rgba(210, 230, 255, 0.92) 100%);
@@ -68,7 +65,6 @@ body {
   z-index: 10;
 }
 
-/* Thanh địa chỉ duyệt web màu xanh mây */
 .browser-bar {
   background: linear-gradient(90deg, #d8e8fb 0%, #eaf3fd 100%);
   padding: 12px 20px;
@@ -99,14 +95,12 @@ body {
   align-items: center;
   text-align: center;
   animation: fadeIn 0.4s ease-in-out;
-  /* Hoa văn mây & hoa lily nhẹ chìm trong nền khung */
   background-image: radial-gradient(rgba(255, 255, 255, 0.6) 2px, transparent 2px);
   background-size: 24px 24px;
 }
 
 .page.active { display: flex; }
 
-/* Khung Intro Thiệp Nền Xanh Pastel */
 .intro-card {
   background: linear-gradient(145deg, #ffffff 0%, #f0f6ff 100%);
   border: 2px solid #b8d7f9;
@@ -141,7 +135,6 @@ body {
   margin: 10px 0;
 }
 
-/* Thư Nhắn Giấy Thiệp Nền Mây Xanh Xinh Xắn */
 .letter-box {
   background: linear-gradient(160deg, #ffffff 0%, #f4f8fe 100%);
   border-radius: 26px;
@@ -154,19 +147,6 @@ body {
   position: relative;
 }
 
-.letter-box::before {
-  content: '🪻 🦋';
-  position: absolute;
-  top: -16px;
-  right: 25px;
-  background: #ffffff;
-  padding: 2px 12px;
-  border-radius: 15px;
-  border: 1px solid #bce0fd;
-  font-size: 14px;
-}
-
-/* Trang Kết Bìa Thiệp Thiệt Kế Tông Blue Floral Ribbon */
 .card-end-box {
   background: linear-gradient(135deg, #ffffff 0%, #eaf3ff 100%);
   border-radius: 28px;
@@ -215,38 +195,50 @@ body {
   white-space: pre-line;
 }
 
-.deco-icons-row {
-  margin-bottom: 10px;
-  font-size: 24px;
-}
-
-/* Khung Nghe Nhạc Phong Cách Blue Player */
-.music-card {
-  background: linear-gradient(135deg, #eaf3ff 0%, #d8eafe 100%);
-  border: 2px dashed #9bc3f5;
-  border-radius: 18px;
-  padding: 18px;
+/* Khung Embed YouTube Nhạc Xịn Phát Trực Tiếp */
+.music-container {
   margin-top: 20px;
+  background: #eaf3ff;
+  border: 2px dashed #9bc3f5;
+  border-radius: 20px;
+  padding: 15px;
   text-align: center;
 }
 
-.music-card p {
-  margin: 0 0 10px 0;
+.music-title {
   font-size: 14px;
   color: var(--blue-main);
   font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* Tỉ lệ 16:9 chuẩn */
+  height: 0;
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(59, 113, 202, 0.18);
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 .video-note {
   font-size: 13px;
   color: #6a8bb1;
-  margin-top: 8px;
+  margin-top: 10px;
   font-style: italic;
   font-weight: 600;
   text-align: center;
 }
 
-/* Nút Bấm Tông Xanh Blue Ribbon */
 .btn-primary {
   background: linear-gradient(135deg, #4a84e3, #336bc7);
   color: white;
@@ -293,7 +285,6 @@ body {
   margin-top: 25px;
 }
 
-/* Hiệu ứng thả Mèo / Hoa / Bướm / Nơ */
 .drop-item {
   position: fixed;
   top: -40px;
@@ -321,7 +312,6 @@ body {
 </head>
 <body>
 
-<!-- Nền Họa Tiết Soft Blue Lily & Bows Bay Xung Quanh -->
 <div class="bg-deco deco-1">🎀 🪻</div>
 <div class="bg-deco deco-2">🦋 🐈‍⬛</div>
 <div class="bg-deco deco-3">☁️ 🤍</div>
@@ -340,7 +330,7 @@ body {
   <!-- TRANG LỜI CHÀO -->
   <section class="page active" id="page-intro">
     <div class="intro-card">
-      <div class="deco-icons-row">
+      <div style="font-size:24px; margin-bottom:10px;">
         🎀 🪻 🐱 🦋 🐈‍⬛ 🤍
       </div>
       <span style="background:var(--blue-soft); color:var(--blue-main); padding:6px 16px; border-radius:20px; font-size:13px; font-weight:700;">Ê ku e</span>
@@ -394,7 +384,7 @@ Mong bạn sẽ luôn xinh như hoa, đẹp, gặp nhiều may mắn và đượ
     </div>
   </section>
 
-  <!-- TRANG LỜI NHẮN 3/3 -->
+  <!-- TRANG LỜI NHẮN 3/3 (KHUNG PHÁT NHẠC XIN TRỰC TIẾP TRÊN WEB) -->
   <section class="page" id="page-3">
     <div class="letter-box">
       <div class="letter-header">
@@ -407,9 +397,17 @@ Mong là m thích nó, dù nó không phải món quà gì to tát. T chỉ mu�
 Hay là để có dịp t nấu canh cho m ăn, t bt là m thích lắm nhma cứ ngại nên ko sao đâu t nấu cho m mà đừng có lo 🍲💚
       </div>
 
-      <div class="music-card">
-        <p>🎵 wave to the earth - love (Official Audio)</p>
-        <a href="https://www.youtube.com/watch?v=NfR4pSAnvU4" target="_blank" class="btn-primary" style="padding: 10px 24px; font-size:14px;">Bấm vào đây để nghe nhạc nha 🎧</a>
+      <!-- Khung Video Nhạc Chuẩn Không Bị Lỗi Chặn Nhúng -->
+      <div class="music-container">
+        <div class="music-title">🎵 wave to the earth - love</div>
+        <div class="video-wrapper">
+          <iframe 
+            src="https://www.youtube-nocookie.com/embed/VpX32F51iTo?rel=0" 
+            title="wave to the earth - love" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
         <div class="video-note">t thấy m nghe cũng nhiều nên :))))</div>
       </div>
 
@@ -420,7 +418,7 @@ Hay là để có dịp t nấu canh cho m ăn, t bt là m thích lắm nhma c�
     </div>
   </section>
 
-  <!-- TRANG KẾT BÌA THIỆP THIẾT KẾ MỚI -->
+  <!-- TRANG KẾT BÌA THIỆP -->
   <section class="page" id="page-end">
     <div class="card-end-box">
       <div style="font-size:36px; margin-bottom:10px;">🎀 🪻 🐱 🐈‍⬛ 🦋</div>
