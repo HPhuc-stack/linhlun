@@ -135,6 +135,32 @@ body {
   position: relative;
 }
 
+/* Phong cách Thiệp Thiệp Cưới / Bìa Thiệp */
+.card-end-box {
+  background: linear-gradient(135deg, #ffffff 0%, #fff7f8 100%);
+  border-radius: 28px;
+  border: 3px double #ffd0d7;
+  padding: 40px 30px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 18px 40px rgba(255, 107, 129, 0.12);
+  text-align: center;
+  position: relative;
+}
+
+.card-end-box::before {
+  content: '🌸 🪻 🦋 🐱';
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  padding: 2px 18px;
+  border-radius: 20px;
+  border: 1px solid #ffd0d7;
+  font-size: 16px;
+}
+
 .letter-header {
   display: flex;
   justify-content: space-between;
@@ -254,7 +280,7 @@ body {
 
 @media (max-width: 650px) {
   .page { padding: 30px 20px; }
-  .letter-box { padding: 25px 20px; }
+  .letter-box, .card-end-box { padding: 25px 20px; }
   .letter-header h3 { font-size: 18px; }
 }
 </style>
@@ -282,9 +308,9 @@ body {
       <div class="deco-icons-row">
         🐱 🪻 🦋 🐈‍⬛ 🌸 🤍
       </div>
-      <span style="background:var(--blue-soft); color:var(--blue-main); padding:6px 16px; border-radius:20px; font-size:13px; font-weight:700;">Ê LINH LÙN ƠIII</span>
+      <span style="background:var(--blue-soft); color:var(--blue-main); padding:6px 16px; border-radius:20px; font-size:13px; font-weight:700;">Ê ku e</span>
       <h1>Nay 20/10 á :))))</h1>
-      <p>T làm cái trang web xinh xinh này tặng m nè.<br>Có hoa lily xanh, hoa tươi, bướm với mấy bé mèo m thích đó 🐱🪻🦋</p>
+      <p>T làm cái trang web xinh xinh này tặng m nè.<br>đánh răng ch đó ? 🐧</p>
 
       <button class="btn-primary" onclick="switchPage('page-1')" style="margin-top:15px;">Đọc thư t viết nè 💌</button>
       <div style="font-size:12px; color:#a0b2c6; margin-top:12px;">Mở ra đọc đi màaa :></div>
@@ -337,7 +363,7 @@ Mong bạn sẽ luôn xinh như hoa, đẹp, gặp nhiều may mắn và đượ
   <section class="page" id="page-3">
     <div class="letter-box">
       <div class="letter-header">
-        <h3>Gửi m một chút ấm áp ♡ (Trang 3/3)</h3>
+        <h3>Happy ku e ♡ (Trang 3/3)</h3>
         <div>🐱 🪻 🦋</div>
       </div>
       <div class="letter-content">
@@ -354,6 +380,27 @@ Hay là để có dịp t nấu canh cho m ăn, t bt là m thích lắm nhma c�
 
       <div class="nav-buttons">
         <button class="btn-secondary" onclick="switchPage('page-2')">‹ Trước</button>
+        <button class="btn-primary" onclick="switchPage('page-end')">Trang kết ›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANG KẾT BÌA THIỆP TRANG TRÍ -->
+  <section class="page" id="page-end">
+    <div class="card-end-box">
+      <div style="font-size:36px; margin-bottom:10px;">🐱 🪻 🌸 🐈‍⬛ 🦋</div>
+      <h3 style="color: var(--pink-accent); font-size:24px; margin-top:0; font-weight:800;">Lời kết cho Linh lùn ♡</h3>
+      
+      <p style="font-size:16px; line-height:1.8; color:#4a5d73; margin:20px 0; font-weight:600;">
+        "Xin lỗi t ko bt nói lời hoa mỹ cho lắm nên ko làm m vui các thứ đc nhma t đã cố r 😓 nên mong là đừng eoooooooo eoooooooo eooooooooo :))))"
+      </p>
+
+      <div style="font-size:13px; color:#889bb0; font-style:italic; margin-top:25px; font-weight:700;">
+        m vui là t thành công r 👀
+      </div>
+
+      <div class="nav-buttons" style="justify-content:center; gap:15px; margin-top:30px;">
+        <button class="btn-secondary" onclick="switchPage('page-3')">‹ Quay lại Trang 3</button>
         <button class="btn-primary" onclick="triggerCatRain()">Thả mèo & hoa ✨</button>
       </div>
     </div>
