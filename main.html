@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Cho m nè Linh lùn 🩵🐱🪻</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@400;600;700;800&family=Quicksand:wght@500;600;700&display=swap');
 
 :root {
   --blue-main: #3b71ca;
   --blue-soft: #d2e4f9;
   --blue-accent: #629bf0;
-  --text-dark: #203856;
+  --text-dark: #1e3550;
   --white: #ffffff;
 }
 
@@ -31,7 +31,7 @@ body {
   position: relative;
 }
 
-/* Biểu tượng trang trí lơ lửng */
+/* Decor họa tiết bay lơ lửng */
 .bg-deco {
   position: fixed;
   font-size: 30px;
@@ -102,59 +102,51 @@ body {
 
 .page.active { display: flex; }
 
-/* KIỂU DÁNG TẤM THIỆP GẬP MỞ CHUẨN XINH */
+/* PHONG CÁCH BÌA THIỆP MÂY LILY DẠNG MỘNG MƠ */
 .card-wrapper {
   max-width: 520px;
   width: 100%;
 }
 
-.card-envelope {
-  background: linear-gradient(145deg, #ffffff 0%, #f0f6ff 100%);
-  border: 3px solid #b8d7f9;
-  border-radius: 32px;
-  padding: 42px 32px;
-  box-shadow: 0 18px 40px rgba(59, 113, 202, 0.18);
+.envelope-card {
+  width: 100%;
+  background: linear-gradient(160deg, #1d3557 0%, #457b9d 50%, #a8dadc 100%);
+  border: 2px solid #a8d0fb;
+  border-radius: 28px;
+  padding: 45px 30px;
+  box-shadow: 0 16px 38px rgba(29, 53, 87, 0.35);
   position: relative;
-  text-align: center;
+  color: #ffffff;
   overflow: hidden;
 }
 
-/* Họa tiết dây ruy-băng trang trí góc thiệp */
-.card-envelope::before {
-  content: '🎀';
-  position: absolute;
-  top: -12px;
-  right: -8px;
-  font-size: 32px;
-  transform: rotate(15deg);
-}
-
-.card-envelope::after {
+.envelope-card::before {
   content: '';
   position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 6px;
-  background: linear-gradient(90deg, #9bc3f5, #3b71ca, #9bc3f5);
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.25) 0%, transparent 50%);
+  pointer-events: none;
 }
 
-.card-cover-title {
-  font-size: 28px;
-  font-weight: 800;
-  color: var(--blue-main);
-  margin: 12px 0 8px;
+.handwriting-title {
+  font-family: 'Caveat', cursive;
+  font-size: 38px;
+  line-height: 1.3;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  margin: 15px 0;
 }
 
-.card-cover-sub {
-  font-size: 16px;
-  font-weight: 700;
-  color: #3e5a7c;
-  margin-bottom: 22px;
-  line-height: 1.6;
+.handwriting-sub {
+  font-family: 'Caveat', cursive;
+  font-size: 22px;
+  color: #d8eafe;
+  margin-bottom: 25px;
 }
 
 .card-inside {
   display: none;
-  animation: fadeIn 0.5s ease-in-out forwards;
+  animation: fadeIn 0.6s ease-in-out forwards;
 }
 
 .letter-box {
@@ -171,15 +163,16 @@ body {
 }
 
 .card-end-box {
-  background: linear-gradient(135deg, #ffffff 0%, #eaf3ff 100%);
+  background: linear-gradient(135deg, #1d3557 0%, #3a6073 100%);
   border-radius: 28px;
   border: 2px double #a3cbf7;
   padding: 40px 32px;
   max-width: 600px;
   width: 100%;
-  box-shadow: 0 18px 40px rgba(59, 113, 202, 0.18);
+  box-shadow: 0 18px 40px rgba(29, 53, 87, 0.3);
   text-align: center;
   position: relative;
+  color: #ffffff;
 }
 
 .letter-header {
@@ -243,7 +236,7 @@ body {
 }
 
 .play-music-btn:hover {
-  transform: scale(1.04);
+  transform: scale(1.05);
 }
 
 .custom-audio {
@@ -344,40 +337,37 @@ body {
     <span class="browser-title">Cho m nè Linh lùn 🩵🐱🪻</span>
   </div>
 
-  <!-- TRANG LỜI CHÀO DẠNG BÌA THIỆP -->
+  <!-- TRANG LỜI CHÀO DẠNG THIỆP MỞ -->
   <section class="page active" id="page-intro">
     <div class="card-wrapper">
-      <div class="card-envelope">
+      <div class="envelope-card" id="mainEnvelope">
         
-        <!-- MẶT BÌA THIỆP CHUẨN ĐỒNG BỘ -->
+        <!-- MẶT BÌA THIỆP CHUẨN PHONG CÁCH ẢNH MẪU -->
         <div id="cardCover">
-          <div style="font-size:38px; margin-bottom:8px;">🪻 🦋 🐧</div>
+          <div style="font-size:42px; margin-bottom:10px;">🪻 🦋 🐧</div>
+          <div class="handwriting-title">ê Linh lùn ơiii ♡</div>
+          <div class="handwriting-title" style="font-size:32px; color:#f1faee;">Nay là ngày lễ á :))))</div>
           
-          <div class="card-cover-title">Nay là ngày lễ á :))))</div>
-          
-          <div class="card-cover-sub">
-            T có cái này nè... (1m49)
+          <div class="handwriting-sub" style="margin-top:15px;">
+            Nên là... t có cái này muốn tặng cho m (1m49) nè.
           </div>
-          
-          <div style="font-size:13px; color:#6a8bb1; margin-bottom:22px; font-weight:600;">
-            Đừng chê nha, t làm cũng có tâm lắm đó 💖 🐧
-          </div>
+          <div style="font-size:14px; color:#e0e1dd; margin-bottom:25px;">Đừng chê nha, t làm cũng có tâm lắm đó 💖 🐧</div>
 
           <button class="btn-primary" onclick="openCard()">Rồi rồi, mở coi ♡ ›</button>
-          <div style="font-size:12px; color:#6a8bb1; margin-top:10px;">mở ra đi màaa ›</div>
+          <div style="font-size:12px; color:#d8eafe; margin-top:10px;">mở ra đi màaa ›</div>
         </div>
 
-        <!-- NỘI DUNG THIỆP XUẤT HIỆN KHI BẤM MỞ -->
+        <!-- NỘI DUNG LỜI CHÚC XUẤT HIỆN SAU KHI MỞ BÌA -->
         <div class="card-inside" id="cardInside">
           <div style="font-size:24px; margin-bottom:10px;">
             🎀 🪻 🐱 🦋 🐈‍⬛ 🤍
           </div>
           <span style="background:var(--blue-soft); color:var(--blue-main); padding:6px 16px; border-radius:20px; font-size:13px; font-weight:700;">Ê ku e</span>
-          <h1 style="color:var(--blue-main); margin: 12px 0; font-size:30px; font-weight:800;">Nay 20/10 á :))))</h1>
-          <p style="font-size:16px; color:#3e5a7c;">T làm cái trang web xinh xinh này tặng m nè.<br>đánh răng ch đó ? 🐧</p>
+          <h1 style="color:#ffffff; margin: 12px 0;">Nay 20/10 á :))))</h1>
+          <p style="font-size:16px; color:#e0e1dd;">T làm cái trang web xinh xinh này tặng m nè.<br>đánh răng ch đó ? 🐧</p>
 
           <button class="btn-primary" onclick="switchPage('page-1')" style="margin-top:15px;">Đọc thư t viết nè 💌</button>
-          <div style="font-size:12px; color:#6a8bb1; margin-top:12px;">Mở ra đọc đi màaa :></div>
+          <div style="font-size:12px; color:#d8eafe; margin-top:12px;">Mở ra đọc đi màaa :></div>
         </div>
 
       </div>
@@ -464,23 +454,23 @@ Hay là để có dịp t nấu canh cho m ăn, t bt là m thích lắm nhma c�
     </div>
   </section>
 
-  <!-- TRANG KẾT BÌA THIỆP -->
+  <!-- TRANG KẾT BÌA THIỆP THONG CÁCH ẢNH MẪU -->
   <section class="page" id="page-end">
     <div class="card-end-box">
       <div style="font-size:36px; margin-bottom:10px;">🪻 🦋 🐧 🤍 🎀</div>
-      <h3 style="color: var(--blue-main); font-size:24px; margin-top:0; font-weight:800;">
+      <div class="handwriting-title" style="font-size:32px; margin-bottom:15px;">
         Cảm ơn m vì đã luôn là chính mình ♡
-      </h3>
+      </div>
       
-      <p style="font-size:15px; color:#6a8bb1; font-style:italic; margin-bottom:18px;">
+      <p style="font-size:15px; color:#d8eafe; font-style:italic; margin-bottom:20px;">
         Có m trong đời là điều thật đặc biệt...
       </p>
 
-      <p style="font-size:15px; line-height:1.85; color:#344e6d; margin:20px 0; font-weight:600;">
+      <p style="font-size:15px; line-height:1.85; color:#ffffff; margin:20px 0; font-weight:600;">
         "Xin lỗi t ko bt nói lời hoa mỹ cho lắm nên ko làm m vui các thứ đc nhma t đã cố r 😓 nên mong là đừng eoooooooo eoooooooo eooooooooo :))))"
       </p>
 
-      <div style="font-size:13px; color:#6a8bb1; font-style:italic; margin-top:25px; font-weight:700;">
+      <div style="font-size:13px; color:#a8dadc; font-style:italic; margin-top:25px; font-weight:700;">
         Happy Vietnamese Women's Day 20/10 ♡<br>
         m vui là t thành công r 👀
       </div>
