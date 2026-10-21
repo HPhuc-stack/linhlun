@@ -31,7 +31,7 @@ body {
   position: relative;
 }
 
-/* Các biểu tượng trang trí lơ lửng */
+/* Biểu tượng trang trí lơ lửng */
 .bg-deco {
   position: fixed;
   font-size: 30px;
@@ -102,57 +102,74 @@ body {
 
 .page.active { display: flex; }
 
-/* THIẾT KẾ BÌA THIỆP GẬP TƯƠNG TÁC (CARD FLIP) */
+/* THIẾT KẾ THIỆP CHUẨN STYLE ẢNH MẪU */
 .card-wrapper {
-  perspective: 1000px;
-  max-width: 520px;
+  max-width: 500px;
   width: 100%;
 }
 
 .envelope-card {
   width: 100%;
-  background: linear-gradient(145deg, #ffffff 0%, #f0f6ff 100%);
-  border: 2px double #a8d0fb;
+  background: linear-gradient(160deg, #ffffff 0%, #eaf3ff 100%);
+  border: 2px solid #a8d0fb;
   border-radius: 28px;
   padding: 40px 30px;
-  box-shadow: 0 16px 38px rgba(59, 113, 202, 0.18);
+  box-shadow: 0 16px 40px rgba(59, 113, 202, 0.2);
   position: relative;
-  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-style: preserve-3d;
+  overflow: hidden;
 }
 
-/* Mặt Bìa Thiệp Ban Đầu */
-.card-cover {
+/* Hoa văn họa tiết góc thiệp kiểu ảnh mẫu */
+.card-header-deco {
+  font-size: 32px;
+  margin-bottom: 8px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  gap: 10px;
 }
 
-.card-cover-stamp {
-  font-size: 45px;
-  margin-bottom: 12px;
-  filter: drop-shadow(0 4px 8px rgba(59, 113, 202, 0.2));
+.card-handwriting {
+  font-family: 'Caveat', cursive;
+  font-size: 34px;
+  color: #3b71ca;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 15px 0 10px;
+  text-shadow: 0 2px 8px rgba(59, 113, 202, 0.15);
 }
 
-.card-cover-title {
-  font-size: 26px;
-  font-weight: 800;
-  color: var(--blue-main);
-  margin: 10px 0;
-}
-
-.card-cover-subtitle {
-  font-size: 14px;
-  color: #6a8bb1;
-  font-weight: 600;
+.card-subtext {
+  font-size: 15px;
+  color: #53759e;
+  font-weight: 700;
   margin-bottom: 25px;
+  line-height: 1.6;
 }
 
-/* Lời Chúc Mừng 20/10 Ẩn Bên Trong */
 .card-inside {
   display: none;
-  animation: fadeIn 0.6s ease-in-out forwards;
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.penguin-badge {
+  position: absolute;
+  bottom: 12px;
+  right: 18px;
+  font-size: 26px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid #bce0fd;
+}
+
+.watermark-2010 {
+  font-family: 'Caveat', cursive;
+  font-size: 18px;
+  color: #629bf0;
+  position: absolute;
+  bottom: 15px;
+  left: 20px;
+  font-weight: 700;
 }
 
 .intro-card h1 {
@@ -336,6 +353,7 @@ body {
   .page { padding: 30px 20px; }
   .letter-box, .card-end-box { padding: 25px 20px; }
   .letter-header h3 { font-size: 18px; }
+  .card-handwriting { font-size: 28px; }
 }
 </style>
 </head>
@@ -356,30 +374,48 @@ body {
     <span class="browser-title">Cho m nè Linh lùn 🩵🐱🪻</span>
   </div>
 
-  <!-- TRANG LỜI CHÀO DẠNG THIỆP MỞ -->
+  <!-- TRANG LỜI CHÀO KIỂU THIỆP HOA LILY MỘNG MƠ -->
   <section class="page active" id="page-intro">
     <div class="card-wrapper">
-      <div class="envelope-card" id="mainEnvelope">
+      <div class="envelope-card">
         
-        <!-- MẶT BÌA THIỆP BAN ĐẦU -->
+        <!-- BÌA THIỆP GIỐNG ẢNH MẪU -->
         <div class="card-cover" id="cardCover">
-          <div class="card-cover-stamp">💌 🎀 🪻</div>
-          <div class="card-cover-title">Thiệp Tặng Linh Lùn ♡</div>
-          <div class="card-cover-subtitle">Một món quà nhỏ nhắn dành riêng cho m (2u5) ♡</div>
-          <button class="btn-primary" onclick="openCard()">Mở thiệp ra nè 💌</button>
+          <div class="card-header-deco">🪻 🦋 🎀</div>
+          
+          <div class="card-subtext" style="font-size:16px; margin-bottom: 5px;">
+            ê Linh lùn ơiii ♡
+          </div>
+
+          <div class="card-handwriting">
+            t có cái này muốn<br>tặng cho m (1m49) nè.
+          </div>
+
+          <div class="card-subtext">
+            Đừng chê nha, t làm cũng có tâm lắm đó 💖🐧
+          </div>
+
+          <button class="btn-primary" onclick="openCard()" style="margin-top:10px;">Mở ra coi ♡ 💌</button>
+          
+          <div style="font-size:12px; color:#6a8bb1; margin-top:12px;">mở ra đi màaa :></div>
+
+          <div class="watermark-2010">Happy 20/10 ♡</div>
+          <div class="penguin-badge">🐧💙</div>
         </div>
 
-        <!-- NỘI DUNG LỜI CHÚC XUẤT HIỆN SAU KHI MỞ BÌA -->
+        <!-- NỘI DUNG LỜI CHÚC SAU KHI BẤM MỞ -->
         <div class="card-inside" id="cardInside">
-          <div style="font-size:24px; margin-bottom:10px;">
+          <div style="font-size:26px; margin-bottom:10px;">
             🎀 🪻 🐱 🦋 🐈‍⬛ 🤍
           </div>
           <span style="background:var(--blue-soft); color:var(--blue-main); padding:6px 16px; border-radius:20px; font-size:13px; font-weight:700;">Ê ku e</span>
-          <h1 style="color:var(--blue-main); margin: 12px 0;">Nay 20/10 á :))))</h1>
+          <h1 style="color:var(--blue-main); margin: 12px 0;">Nay là ngày lễ á :))))</h1>
           <p style="font-size:16px; color:#3e5a7c;">T làm cái trang web xinh xinh này tặng m nè.<br>đánh răng ch đó ? 🐧</p>
 
           <button class="btn-primary" onclick="switchPage('page-1')" style="margin-top:15px;">Đọc thư t viết nè 💌</button>
           <div style="font-size:12px; color:#6a8bb1; margin-top:12px;">Mở ra đọc đi màaa :></div>
+          
+          <div class="penguin-badge">🐧💙</div>
         </div>
 
       </div>
@@ -491,13 +527,8 @@ Hay là để có dịp t nấu canh cho m ăn, t bt là m thích lắm nhma c�
 
 <script>
 function openCard() {
-  const card = document.getElementById('mainEnvelope');
-  const cover = document.getElementById('cardCover');
-  const inside = document.getElementById('cardInside');
-
-  // Hiệu ứng mở bìa thiệp
-  cover.style.display = 'none';
-  inside.style.display = 'block';
+  document.getElementById('cardCover').style.display = 'none';
+  document.getElementById('cardInside').style.display = 'block';
   triggerCatRain();
 }
 
